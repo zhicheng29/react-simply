@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 import Welcome from "./components/Welcome.tsx";
 import LoginForm from "./components/LoginForm.tsx";
-import { useState } from "react";
+import SwichDark from "@/components/SwichDark";
+
 import ImgUrl from "@/assets/images/login_form_img.png";
 
 import "./index.less";
@@ -12,6 +15,7 @@ const Login: React.FC = () => {
     <div className="lint-container">
       <Welcome showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
       <div className={["login-container", showWelcome ? "" : "show-login"].join(" ")}>
+        <SwichDark />
         <div className="login-content">
           <div className="login-form-image">
             <img src={ImgUrl}></img>
