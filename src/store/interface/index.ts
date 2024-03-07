@@ -1,4 +1,5 @@
-export interface UserState {
+// user
+export interface UserStateType {
   token: string;
   userInfo: { name: string };
 }

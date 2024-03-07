@@ -1,19 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UserState } from "@/store/interface/index";
+import { UserStateType } from "@/store/interface/index";
 
-const userStaet: UserState = {
+const userState: UserStateType = {
   token: "",
-  userInfo: { name: "Symbol" }
+  userInfo: { name: "Simply" }
 };
 
+// createSlice 创建一个模板
 const useUserStore = createSlice({
   name: "user",
-  initialState: userStaet,
+  initialState: userState, // 初始数据状态
   reducers: {
-    setName(state, action) {
-      state.userInfo.name = action.payload;
+    // 设置用户名
+    setUserName(state, name) {
+      state.userInfo.name = name.payload;
     }
   }
 });
 
+const { setUserName } = useUserStore.actions;
+
+// 导出创建 actions 的对象
+export { setUserName };
+// 导出 reducer 函数
 export default useUserStore.reducer;

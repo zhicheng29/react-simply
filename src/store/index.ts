@@ -1,9 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import useUserStore from "@/store/modules/user";
+import useUserReducer from "@/store/modules/user";
 
-export const store = configureStore({
+// 创建根 store 与子模块
+const store = configureStore({
   reducer: {
-    user: useUserStore
+    user: useUserReducer
   }
 });
+
+export type RootStateType = ReturnType<typeof store.getState>;
+
+export default store;
