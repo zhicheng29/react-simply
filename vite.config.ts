@@ -23,6 +23,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     esbuild: {
       pure: converseEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []
     },
+
     build: {
       outDir: "dist",
       minify: "esbuild",

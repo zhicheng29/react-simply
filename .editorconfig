@@ -1,5 +1,4 @@
 # @see: http://editorconfig.org
-
 root = true
 
 [*] # Indicates that all documents apply

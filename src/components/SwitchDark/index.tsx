@@ -2,7 +2,7 @@ import { Button } from "antd";
 import { IconFont } from "@/components/Icon";
 import { MouseEventHandler } from "react";
 
-const SwichDark = () => {
+const SwitchDark = () => {
   const toggleTheme: MouseEventHandler<HTMLElement> = event => {
     const x = event.clientX;
     const y = event.clientY;
@@ -18,10 +18,10 @@ const SwichDark = () => {
     });
 
     transition.ready.then(() => {
-      const clipath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
+      const cliPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
       document.documentElement.animate(
         {
-          clipPath: isDark ? [...clipath].reverse() : clipath
+          clipPath: isDark ? [...cliPath].reverse() : cliPath
         },
         {
           duration: 500,
@@ -36,10 +36,10 @@ const SwichDark = () => {
     <Button
       type="text"
       icon={<IconFont style={{ fontSize: 22 }} type="icon-sun" />}
-      className="swich-dark-button"
+      className="switch-dark-button"
       onClick={toggleTheme}
     />
   );
 };
 
-export default SwichDark;
+export default SwitchDark;

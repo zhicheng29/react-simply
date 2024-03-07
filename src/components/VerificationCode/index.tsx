@@ -70,7 +70,6 @@ const IdentifyCode = ({
     ctx.textBaseline = "bottom";
     ctx.fillStyle = transparent();
     ctx.fillRect(0, 0, contentWidth, contentHeight);
-
     for (let i = 0; i < identifyCode.length; i++) {
       drawText(ctx, identifyCode[i], i);
     }
