@@ -22,7 +22,7 @@ const LoginForm: React.FC = () => {
     setCode(generateRandomString());
   };
 
-  const validaVcode = (value: string) => {
+  const validatorVcode = (value: string) => {
     if (!value) {
       return Promise.reject("请输入验证码");
     } else if (value.toLocaleLowerCase() !== code.toLocaleLowerCase()) {
@@ -51,7 +51,7 @@ const LoginForm: React.FC = () => {
           name="vcode"
           className="login-form-vcodeInput"
           validateTrigger="onBlur"
-          rules={[{ validator: (_rule, value) => validaVcode(value) }]}
+          rules={[{ validator: (_rule, value) => validatorVcode(value) }]}
         >
           <Input allowClear placeholder="验证码" prefix={<SafetyCertificateOutlined />} />
         </Form.Item>

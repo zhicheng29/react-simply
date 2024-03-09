@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UserStateType } from "@/store/interface/index";
+import type { UserStateType } from "@/store/interface/index";
 
 const userState: UserStateType = {
   token: "",
   userInfo: { name: "Simply" }
 };
 
-// createSlice 创建一个模板
+// createSlice 创建子模板
 const useUserStore = createSlice({
   name: "user",
   initialState: userState, // 初始数据状态

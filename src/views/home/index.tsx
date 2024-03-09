@@ -9,8 +9,7 @@ const Home: React.FC = () => {
   const { userInfo } = useSelector((state: RootStateType) => state.user);
   const dispatch = useDispatch();
   const setName = () => {
-    dispatch(setUserName("刘章衡大傻逼"));
-    console.log(userInfo.name);
+    dispatch(setUserName("Simply-Admin"));
   };
   return (
     <>

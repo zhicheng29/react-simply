@@ -1,10 +1,21 @@
-import { Button } from "antd";
-import { IconFont } from "@/components/Icon";
+import { useSelector, useDispatch } from "react-redux";
 import { MouseEventHandler } from "react";
 
+import { setTheme } from "@/store/modules/theme";
+
+import { Button } from "antd";
+
+import { IconFont } from "@/components/Icon";
+
+import type { RootStateType } from "@/store/index";
+
 const SwitchDark = () => {
+  const dispatch = useDispatch();
+  const { isDark: dark } = useSelector((state: RootStateType) => state.theme);
+
   // 切换主题函数
   const toggleTheme: MouseEventHandler<HTMLElement> = event => {
+    dispatch(setTheme({ key: "isDark", value: !dark }));
     // 鼠标 x 坐标
     const x = event.clientX;
     // 鼠标 y 坐标
@@ -42,7 +53,7 @@ const SwitchDark = () => {
   return (
     <Button
       type="text"
-      icon={<IconFont style={{ fontSize: 22 }} type="icon-sun" />}
+      icon={<IconFont style={{ fontSize: 22 }} type={dark ? "icon-moon" : "icon-sun"} />}
       className="switch-dark-button"
       onClick={toggleTheme}
     />
