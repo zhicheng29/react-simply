@@ -1,10 +1,9 @@
-import { useSelector, useDispatch } from "react-redux";
 import { MouseEventHandler } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { setTheme } from "@/store/modules/theme";
 
 import { Button } from "antd";
-
 import { IconFont } from "@/components/Icon";
 
 import type { RootStateType } from "@/store/index";

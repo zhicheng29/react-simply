@@ -17,7 +17,15 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     server: {
       host: "0.0.0.0",
       port: converseEnv.VITE_PORT,
-      open: converseEnv.VITE_OPEN
+      open: converseEnv.VITE_OPEN,
+      cors: true,
+      proxy: {
+        "/api": {
+          target: "https://mock.apifox.cn/m1/3037186-0-default",
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, "")
+        }
+      }
     },
     plugins: [react()],
     esbuild: {

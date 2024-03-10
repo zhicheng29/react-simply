@@ -1,5 +1,6 @@
-import SmokeVideo from "@/assets/videos/smoke.mp4";
 import React, { useLayoutEffect, useCallback, useRef } from "react";
+
+import SmokeVideo from "@/assets/videos/smoke.mp4";
 
 interface WelcomeProps {
   showWelcome: boolean;

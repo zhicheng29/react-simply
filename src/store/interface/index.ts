@@ -5,7 +5,6 @@ export interface UserStateType {
 }
 
 // theme
-
 export type LanguageType = "zh" | "en" | null;
 
 export interface ThemeStateType {

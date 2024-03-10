@@ -1,39 +1,36 @@
-import { Button, Form, Input } from "antd";
-import { LockOutlined, UserOutlined, LoginOutlined, CloseCircleOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
-import VerificationCode from "@/components/VerificationCode";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import md5 from "md5";
 
-type FieldType = {
+import { loginApi } from "@/api/modules/login";
+import { setToken } from "@/store/modules/user";
+
+import VerificationCode from "@/components/VerificationCode";
+import { Button, Form, Input } from "antd";
+import { LockOutlined, UserOutlined, LoginOutlined, CloseCircleOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
+
+import type { LoginReqType } from "@/api/interface";
+
+type LoginFormType = {
   username?: string;
   password?: string;
-  remember?: string;
   vcode?: string;
 };
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const generateRandomString = () => Math.random().toString(36).substring(2, 8);
-
   const [code, setCode] = useState(generateRandomString());
 
   const changeVCode = () => {
     setCode(generateRandomString());
   };
 
-  const validatorVcode = (value: string) => {
-    if (!value) {
-      return Promise.reject("请输入验证码");
-    } else if (value.toLocaleLowerCase() !== code.toLocaleLowerCase()) {
-      return Promise.reject("验证码错误");
-    } else {
-      return Promise.resolve();
-    }
-  };
-
-  const onFinish = (values: any) => {
-    console.log(values);
+  const onFinish = async (formData: LoginReqType) => {
+    const { data } = await loginApi({ ...formData, password: md5(formData.password) });
+    dispatch(setToken(data.access_token));
     navigate("/home", { replace: true });
   };
 
@@ -41,17 +38,16 @@ const LoginForm: React.FC = () => {
     <>
       <h1>Simply-Admin</h1>
       <Form name="login" size="large" onFinish={onFinish} autoComplete="off">
-        <Form.Item<FieldType> name="username" rules={[{ required: true, message: "请输入用户名" }]}>
+        <Form.Item<LoginFormType> name="username" rules={[{ required: true, message: "请输入用户名" }]}>
           <Input allowClear placeholder="用户名" prefix={<UserOutlined />} />
         </Form.Item>
-        <Form.Item<FieldType> name="password" rules={[{ required: true, message: "请输入密码" }]}>
+        <Form.Item<LoginFormType> name="password" rules={[{ required: true, message: "请输入密码" }]}>
           <Input.Password allowClear placeholder="密码" prefix={<LockOutlined />} />
         </Form.Item>
-        <Form.Item<FieldType>
+        <Form.Item<LoginFormType>
           name="vcode"
           className="login-form-vcodeInput"
-          validateTrigger="onBlur"
-          rules={[{ validator: (_rule, value) => validatorVcode(value) }]}
+          rules={[{ required: true, message: "请输入验证码" }]}
         >
           <Input allowClear placeholder="验证码" prefix={<SafetyCertificateOutlined />} />
         </Form.Item>

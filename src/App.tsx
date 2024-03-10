@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { setTheme } from "@/store/modules/theme";
 import { getSystemLanguage } from "@/utils/theme";
 
+import RouterProvider from "@/routers/index";
+
 import { ConfigProvider } from "antd";
 import enUS from "antd/locale/en_US";
 import zhCN from "antd/locale/zh_CN";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
-
-import RouterProvider from "@/routers/index";
 
 import type { RootStateType } from "@/store";
 

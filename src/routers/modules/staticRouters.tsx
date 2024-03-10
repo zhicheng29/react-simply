@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 
-import Login from "@/views/login/index";
-import Home from "@/views/home/index";
+import Login from "@/pages/login/index";
+import Home from "@/pages/home/index";
 import NoFoundPage from "@/components/Error/404";
 
 import type { RouteObjectType } from "@/routers/interface/index";

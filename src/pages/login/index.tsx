@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import Welcome from "./components/Welcome.tsx";
-import LoginForm from "./components/LoginForm.tsx";
+import Welcome from "@/pages/login/components/Welcome.tsx";
+import LoginForm from "@/pages/login/components/LoginForm.tsx";
 import SwitchDark from "@/components/SwitchDark/index.tsx";
 
 import ImgUrl from "@/assets/images/login_form_img.png";
