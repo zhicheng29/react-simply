@@ -24,6 +24,12 @@ const LoginForm: React.FC = () => {
   const generateRandomString = () => Math.random().toString(36).substring(2, 8);
   const [code, setCode] = useState(generateRandomString());
 
+  const initialFormData: LoginFormType = {
+    username: "admin",
+    password: "123456",
+    vcode: ""
+  };
+
   const changeVCode = () => {
     setCode(generateRandomString());
   };
@@ -37,7 +43,7 @@ const LoginForm: React.FC = () => {
   return (
     <>
       <h1>Simply-Admin</h1>
-      <Form name="login" size="large" onFinish={onFinish} autoComplete="off">
+      <Form name="login" size="large" autoComplete="on" onFinish={onFinish} initialValues={initialFormData}>
         <Form.Item<LoginFormType> name="username" rules={[{ required: true, message: "请输入用户名" }]}>
           <Input allowClear placeholder="用户名" prefix={<UserOutlined />} />
         </Form.Item>

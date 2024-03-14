@@ -8,3 +8,12 @@ export function getSystemLanguage(): "zh" | "en" {
   if (isCN) return "zh";
   return "en";
 }
+
+/**
+ * @description Set style properties
+ * @param {String} key - The key name of the style property
+ * @param {String} val - The value of the style attribute
+ */
+export function setStyleProperty(key: string, val: string) {
+  document.documentElement.style.setProperty(key, val);
+}

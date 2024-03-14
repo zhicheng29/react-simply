@@ -39,7 +39,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    animation: hidden-video 0s linear forwards 7.5s;
+    animation: hidden-video 0s linear forwards 8s;
   }
   .text-content {
     position: absolute;
@@ -316,7 +316,7 @@
   height: 100%;
   min-height: 600px;
   user-select: none;
-  background-image: url("@/assets/images/login_light_bg.jpg");
+  background-image: var(--simply-loginBgImg);
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0;
@@ -337,9 +337,11 @@
     width: 60%;
     min-width: 1000px;
     height: 550px;
-    background: linear-gradient(to bottom, #ffffff, #dceaf1);
+    color: var(--simply-textColor);
+    background: var(--simply-loginFormBgColor);
     border-radius: 8px;
     opacity: 0.8;
+    transition: color 0.3s ease 0s;
     transform: translate(-50%, -50%);
     .login-form-image {
       display: flex;

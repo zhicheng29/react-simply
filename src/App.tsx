@@ -6,7 +6,7 @@ import { getSystemLanguage } from "@/utils/theme";
 
 import RouterProvider from "@/routers/index";
 
-import { ConfigProvider } from "antd";
+import { ConfigProvider, theme } from "antd";
 import enUS from "antd/locale/en_US";
 import zhCN from "antd/locale/zh_CN";
 import dayjs from "dayjs";
@@ -15,8 +15,13 @@ import "dayjs/locale/zh-cn";
 import type { RootStateType } from "@/store";
 
 const App: React.FC = () => {
-  const { language } = useSelector((state: RootStateType) => state.theme);
+  const { language, isDark } = useSelector((state: RootStateType) => state.theme);
   const dispatch = useDispatch();
+
+  const initAlgorithm = () => {
+    const algorithmArr = isDark ? [theme.darkAlgorithm] : [theme.defaultAlgorithm];
+    return algorithmArr;
+  };
 
   const initLanguage = () => {
     const systemLanguage = language ?? getSystemLanguage();
@@ -29,7 +34,10 @@ const App: React.FC = () => {
   });
 
   return (
-    <ConfigProvider locale={language === "zh" ? zhCN : enUS}>
+    <ConfigProvider
+      locale={language === "zh" ? zhCN : enUS}
+      theme={{ algorithm: initAlgorithm(), cssVar: { prefix: "simply" }, hashed: false }}
+    >
       <RouterProvider />
     </ConfigProvider>
   );
