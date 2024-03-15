@@ -1,17 +1,13 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "@/store/modules/theme";
 import { getSystemLanguage } from "@/utils/theme";
-
 import RouterProvider from "@/routers/index";
-
 import { ConfigProvider, theme } from "antd";
 import enUS from "antd/locale/en_US";
 import zhCN from "antd/locale/zh_CN";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
-
 import type { RootStateType } from "@/store";
 
 const App: React.FC = () => {
@@ -19,8 +15,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
 
   const initAlgorithm = () => {
-    const algorithmArr = isDark ? [theme.darkAlgorithm] : [theme.defaultAlgorithm];
-    return algorithmArr;
+    return isDark ? [theme.darkAlgorithm] : [theme.defaultAlgorithm];
   };
 
   const initLanguage = () => {
