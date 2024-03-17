@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "@/store/index.ts";
 
 import { setUserInfo } from "@/store/modules/user";
 

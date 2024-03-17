@@ -1,7 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
-
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { ThemeStateType } from "@/store/interface/index";
+import { createSlice } from "@reduxjs/toolkit";
+import type { ThemeStateType } from "@/store/interface/index.ts";
 
 const themeState: ThemeStateType = {
   isDark: false,
@@ -9,6 +8,7 @@ const themeState: ThemeStateType = {
   language: null
 };
 
+// 创建样式 store
 const useThemeSlice = createSlice({
   name: "theme",
   initialState: themeState,

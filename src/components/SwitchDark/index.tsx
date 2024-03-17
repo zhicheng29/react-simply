@@ -1,12 +1,12 @@
 import { MouseEventHandler } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "@/store/index.ts";
 
 import { setTheme } from "@/store/modules/theme";
 
 import { Button } from "antd";
 import { IconFont } from "@/components/Icon";
 
-import type { RootStateType } from "@/store/index";
+import type { RootStateType } from "@/store/index.ts";
 
 const SwitchDark = () => {
   const dispatch = useDispatch();

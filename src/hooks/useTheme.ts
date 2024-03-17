@@ -1,10 +1,12 @@
 import { useEffect } from "react";
+import { shallowEqual } from "react-redux";
 
-import { useSelector, shallowEqual } from "react-redux";
-
-import type { RootStateType } from "@/store";
+import { useSelector } from "@/store/index.ts";
 import { globalTheme } from "@/styles/theme/global";
 import { setStyleProperty } from "@/utils/theme";
+
+import type { RootStateType } from "@/store";
+
 // import { theme } from "antd";
 
 const useTheme = () => {
