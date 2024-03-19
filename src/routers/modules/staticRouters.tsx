@@ -1,3 +1,7 @@
+import { Navigate } from "react-router-dom";
+
+import { HOMEPATH } from "@/constants/config.ts";
+
 import { Loading } from "@/components/Loading";
 import Login from "@/pages/login/index";
 import NoFoundPage from "@/components/Error/404";
@@ -7,6 +11,10 @@ import RouterGuard from "@/routers/helper/RouterGuard.tsx";
 import type { RouteObjectType } from "@/routers/interface/index.ts";
 
 export const staticRouters: RouteObjectType[] = [
+  {
+    path: "/",
+    element: <Navigate to={HOMEPATH} />
+  },
   {
     path: "/login",
     element: <Login />,

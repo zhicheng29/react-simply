@@ -41,3 +41,8 @@ export type AppDispatch = typeof store.dispatch;
 // 使用 useDispatch 和 useSelector
 export const useDispatch = () => useReduxDisPatch<AppDispatch>();
 export const useSelector: TypedUseSelectorHook<RootStateType> = useReduxSelector;
+
+// 注意: gatState 与 useSelector 效果是一致的但是需要注意
+// 1. gatState 获取的是整个 store 的状态，而 useSelector 只能获取指定模块的状态
+// 2. gatState 获取的数据在组件内部无法触发重新渲染，而 useSelector 获取的数据在组件内部可以触发重新渲染
+// 3. getState 通常是在组件外使用，而 useSelector 通常是在组件内部使用
