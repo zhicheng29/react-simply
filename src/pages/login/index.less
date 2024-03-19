@@ -334,8 +334,8 @@
     top: 50%;
     left: 50%;
     display: flex;
-    width: 60%;
-    min-width: 1000px;
+    width: 70%;
+    min-width: 1150px;
     height: 550px;
     color: var(--simply-textColor);
     background: var(--simply-loginFormBgColor);
@@ -343,7 +343,7 @@
     opacity: 0.8;
     transition: color 0.3s ease 0s;
     transform: translate(-50%, -50%);
-    .login-form-image {
+    .login-illustration {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -356,11 +356,22 @@
     .login-form-content {
       flex: 1;
       padding: 80px 30px 20px 0;
-      h1 {
-        font-family: SourceHanSansCN-Regular;
-        font-size: 40px;
-        font-weight: bold;
-        text-align: center;
+      .login-form-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 35px;
+        vertical-align: middle;
+        img {
+          width: 70px;
+          margin-right: 10px;
+        }
+        span {
+          font-family: SourceHanSansCN-Regular;
+          font-size: 45px;
+          font-weight: bold;
+          text-align: center;
+        }
       }
       .ant-form-item {
         margin-bottom: 35px;

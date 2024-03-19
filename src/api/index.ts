@@ -2,11 +2,14 @@ import axios from "axios";
 
 import { setToken } from "@/stores/modules/user";
 import { store } from "@/stores/index.ts";
+import { message as messageNotice } from "@/hooks/useMessage";
 
 import { ResponseStatusEnum } from "@/enum/axiosEnum";
+import { LOGINPATH } from "@/constants/config.ts";
 
 import type { ResponseType } from "@/api/interface";
-import type { AxiosResponse, AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
+import type { AxiosError, AxiosResponse, AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
+import { checkStatus } from "@/api/helper/checkStatus.ts";
 
 const config = {
   baseURL: import.meta.env.VITE_API_BASE_URL as string,
@@ -40,6 +43,7 @@ class RequestHttp {
         // 登录过期
         if (data.code === ResponseStatusEnum.OVERDUE) {
           store.dispatch(setToken(""));
+          window.$navigate(LOGINPATH);
           return Promise.reject(data);
         }
         // 业务层级错误码
@@ -48,8 +52,12 @@ class RequestHttp {
         }
         return data;
       },
-      error => {
-        console.log(error);
+      (error: AxiosError) => {
+        const { response, message } = error;
+        if (message.includes("timeout")) messageNotice.error("请求超时！请您稍后重试");
+        if (message.includes("Network Error")) messageNotice.error("网络错误！请您稍后重试");
+        if (response) checkStatus(response.status);
+        if (!window.navigator.onLine) window.$navigate("/500"); // 离线
         return Promise.reject(error);
       }
     );

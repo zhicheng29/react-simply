@@ -15,8 +15,8 @@ const Login: React.FC = () => {
       <Welcome showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
       <div className={["login-container", showWelcome ? "" : "show-login"].join(" ")}>
         <div className="login-content">
-          <div className="login-form-image">
-            <img src={ImgUrl}></img>
+          <div className="login-illustration">
+            <img src={ImgUrl} alt="illustration"></img>
           </div>
           <div className="login-form-content">
             <LoginForm />

@@ -1,6 +1,8 @@
-import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import md5 from "md5";
+
+import { LOGINPATH } from "@/constants/config.ts";
 
 import { useDispatch } from "@/stores/index.ts";
 import { loginApi } from "@/api/modules/login";
@@ -10,6 +12,8 @@ import usePermission from "@/hooks/usePermission";
 import VerificationCode from "@/components/VerificationCode";
 import { Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined, LoginOutlined, CloseCircleOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
+
+import Logo from "@/assets/images/logo.svg";
 
 import type { LoginReqType } from "@/api/interface";
 
@@ -21,7 +25,7 @@ type LoginFormType = {
 
 const LoginForm: React.FC = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { initPermission } = usePermission();
 
   const generateRandomString = () => Math.random().toString(36).substring(2, 8);
@@ -41,12 +45,15 @@ const LoginForm: React.FC = () => {
     const { data } = await loginApi({ ...formData, password: md5(formData.password) });
     dispatch(setToken(data.access_token));
     await initPermission(data.access_token);
-    // navigate("/home/index");
+    navigate(LOGINPATH);
   };
 
   return (
-    <>
-      <h1>Simply-Admin</h1>
+    <React.Fragment>
+      <div className="login-form-title">
+        <img src={Logo} alt="logo" />
+        <span>Simply-Admin</span>
+      </div>
       <Form name="login" size="large" autoComplete="on" onFinish={onFinish} initialValues={initialFormData}>
         <Form.Item<LoginFormType> name="username" rules={[{ required: true, message: "请输入用户名" }]}>
           <Input allowClear placeholder="用户名" prefix={<UserOutlined />} />
@@ -73,7 +80,7 @@ const LoginForm: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </React.Fragment>
   );
 };
 

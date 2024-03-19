@@ -1,9 +1,10 @@
+import { Loading } from "@/components/Loading";
 import Login from "@/pages/login/index";
 import NoFoundPage from "@/components/Error/404";
+import NotNetWork from "@/components/Error/500.tsx";
 import RouterGuard from "@/routers/helper/RouterGuard.tsx";
 
 import type { RouteObjectType } from "@/routers/interface/index.ts";
-import { Loading } from "@/components/Loading";
 
 export const staticRouters: RouteObjectType[] = [
   {
@@ -18,6 +19,13 @@ export const staticRouters: RouteObjectType[] = [
     element: <NoFoundPage />,
     meta: {
       title: "404"
+    }
+  },
+  {
+    path: "/500",
+    element: <NotNetWork />,
+    meta: {
+      title: "500"
     }
   },
   {
