@@ -4,19 +4,21 @@ import { persistStore, persistReducer } from "redux-persist"; // 持久化
 import storage from "redux-persist/lib/storage"; // 存储
 import { thunk } from "redux-thunk"; // 异步
 
-import user from "@/store/modules/user";
-import theme from "@/store/modules/theme";
+import user from "@/stores/modules/user";
+import theme from "@/stores/modules/theme";
+import authMenu from "@/stores/modules/auth";
 
 import type { Middleware } from "@reduxjs/toolkit";
+
+// 使用 combineReducers 合并子模块
+const reducer = combineReducers({ user, theme, authMenu });
 
 // persist 配置
 const persistConfig = {
   key: "redux_state",
-  storage
+  storage,
+  blacklist: ["authMenu"]
 };
-
-// 使用 combineReducers 合并子模块
-const reducer = combineReducers({ user, theme });
 
 // 使用 persistReducer 包裹 reducer，以便在持久化时进行处理
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -30,7 +32,7 @@ export const store = configureStore({
   middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }).concat(middlewares)
 });
 
-// 创建持久化 store
+// 创建持久化 stores
 export const persist = persistStore(store);
 
 export type RootStateType = ReturnType<typeof store.getState>;

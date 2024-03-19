@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { shallowEqual } from "react-redux";
 
-import { useSelector } from "@/store/index.ts";
+import { useSelector } from "@/stores/index.ts";
 import { globalTheme } from "@/styles/theme/global";
-import { setStyleProperty } from "@/utils/theme";
+import { setStyleProperty } from "@/utils";
 
-import type { RootStateType } from "@/store";
+import type { RootStateType } from "src/stores";
 
 // import { theme } from "antd";
 

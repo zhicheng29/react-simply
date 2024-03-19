@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { UserStateType } from "@/store/interface/index";
+import type { UserStateType } from "@/stores/interface/index.ts";
 
 const userState: UserStateType = {
   token: "",
-  userInfo: { name: "Simply" }
+  userInfo: { name: "" }
 };
 
 // createSlice 创建子模板

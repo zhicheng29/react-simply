@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import Welcome from "@/pages/login/components/Welcome.tsx";
 import LoginForm from "@/pages/login/components/LoginForm.tsx";

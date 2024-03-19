@@ -1,3 +1,5 @@
+import { RouteObjectType } from "@/routers/interface";
+
 /**
  * @description 获取系统语言
  * @returns "zh" | "en"
@@ -16,4 +18,14 @@ export function getSystemLanguage(): "zh" | "en" {
  */
 export function setStyleProperty(key: string, val: string) {
   document.documentElement.style.setProperty(key, val);
+}
+
+/**
+ * @description 递归扁平化菜单列表
+ * @param {Array} menuList - 菜单列表
+ * @returns {Array}
+ */
+export function getFlatMenuList(menuList: RouteObjectType[]): RouteObjectType[] {
+  const newMenuList: RouteObjectType[] = JSON.parse(JSON.stringify(menuList));
+  return newMenuList.flatMap(item => [item, ...(item.children ? getFlatMenuList(item.children) : [])]);
 }

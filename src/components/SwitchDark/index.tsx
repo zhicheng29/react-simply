@@ -1,16 +1,14 @@
-import { MouseEventHandler } from "react";
-import { useSelector, useDispatch } from "@/store/index.ts";
+import React, { MouseEventHandler } from "react";
 
-import { setTheme } from "@/store/modules/theme";
+import { useSelector, useDispatch } from "@/stores/index.ts";
+import { setTheme } from "@/stores/modules/theme";
 
 import { Button } from "antd";
 import { IconFont } from "@/components/Icon";
 
-import type { RootStateType } from "@/store/index.ts";
-
-const SwitchDark = () => {
+const SwitchDark: React.FC = () => {
   const dispatch = useDispatch();
-  const { isDark: dark } = useSelector((state: RootStateType) => state.theme);
+  const { isDark: dark } = useSelector(state => state.theme);
 
   // 切换主题函数
   const toggleTheme: MouseEventHandler<HTMLElement> = event => {

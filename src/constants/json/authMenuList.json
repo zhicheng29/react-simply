@@ -1,0 +1,19 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "path": "/home/index",
+      "element": "/home/index",
+      "meta": {
+        "key": "home",
+        "icon": "HomeOutlined",
+        "title": "首页",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": true
+      }
+    }
+  ],
+  "msg": "成功"
+}

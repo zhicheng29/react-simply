@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useDispatch } from "react-redux";
 
-import { setToken } from "@/store/modules/user";
+import { setToken } from "@/stores/modules/user";
+import { store } from "@/stores/index.ts";
 
 import { ResponseStatusEnum } from "@/enum/axiosEnum";
 
@@ -23,6 +23,9 @@ class RequestHttp {
     // 请求拦截器
     this.service.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
+        if (config.headers && typeof config.headers.set === "function") {
+          config.headers.set("x-access-token", store.getState().user.token);
+        }
         return config;
       },
       error => {
@@ -36,8 +39,7 @@ class RequestHttp {
         const { data } = response;
         // 登录过期
         if (data.code === ResponseStatusEnum.OVERDUE) {
-          const dispatch = useDispatch();
-          dispatch(setToken(""));
+          store.dispatch(setToken(""));
           return Promise.reject(data);
         }
         // 业务层级错误码
@@ -53,16 +55,16 @@ class RequestHttp {
     );
   }
 
-  get<T>(url: string, params: object, config: AxiosRequestConfig = {}): Promise<ResponseType<T>> {
+  get<T>(url: string, params?: object, config: AxiosRequestConfig = {}): Promise<ResponseType<T>> {
     return this.service.get(url, { params, ...config });
   }
-  post<T>(url: string, params: object | string, config: AxiosRequestConfig = {}): Promise<ResponseType<T>> {
+  post<T>(url: string, params?: object | string, config: AxiosRequestConfig = {}): Promise<ResponseType<T>> {
     return this.service.post(url, params, config);
   }
-  put<T>(url: string, params: object, config: AxiosRequestConfig = {}): Promise<ResponseType<T>> {
+  put<T>(url: string, params?: object, config: AxiosRequestConfig = {}): Promise<ResponseType<T>> {
     return this.service.put(url, params, config);
   }
-  delete<T>(url: string, params: object, config: AxiosRequestConfig = {}): Promise<ResponseType<T>> {
+  delete<T>(url: string, params?: object, config: AxiosRequestConfig = {}): Promise<ResponseType<T>> {
     return this.service.delete(url, { params, ...config });
   }
 }

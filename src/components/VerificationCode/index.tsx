@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 
 // 默认值
 const defaultIdentifyCodeProps = {

@@ -1,19 +1,19 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "@/store/index.ts";
-import { setTheme } from "@/store/modules/theme";
-import { getSystemLanguage } from "@/utils/theme";
-import RouterProvider from "@/routers/index";
+import React, { useEffect } from "react";
+
+import { useSelector, useDispatch } from "@/stores/index.ts";
+import { setTheme } from "@/stores/modules/theme";
+import { getSystemLanguage } from "@/utils";
+import RouterProvider from "@/routers/index.tsx";
+
 import { ConfigProvider, theme } from "antd";
 import enUS from "antd/locale/en_US";
 import zhCN from "antd/locale/zh_CN";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
 
-import type { RootStateType } from "@/store";
-
 const App: React.FC = () => {
-  const { language, isDark } = useSelector((state: RootStateType) => state.theme);
   const dispatch = useDispatch();
+  const { language, isDark } = useSelector(state => state.theme);
 
   // 初始化主题算法
   const initAlgorithm = () => {

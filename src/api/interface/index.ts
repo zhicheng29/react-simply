@@ -1,3 +1,5 @@
+import type { RouteObjectType } from "@/routers/interface";
+
 export interface ResponseType<T> {
   code: number;
   data: T;
@@ -12,4 +14,8 @@ export interface LoginReqType {
 
 export interface LoginResType {
   access_token: string;
+}
+
+export interface AuthState {
+  authMenuList: RouteObjectType[];
 }

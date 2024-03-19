@@ -1,17 +1,18 @@
-import { useSelector, useDispatch } from "@/store/index.ts";
+import React from "react";
 
-import { setUserInfo } from "@/store/modules/user";
+import { useSelector, useDispatch } from "@/stores/index.ts";
+
+import { setUserInfo } from "@/stores/modules/user";
 
 import { Button } from "antd";
 
-import type { RootStateType } from "@/store";
-
 const Home: React.FC = () => {
-  const { userInfo } = useSelector((state: RootStateType) => state.user);
   const dispatch = useDispatch();
+  const { userInfo } = useSelector(state => state.user);
   const setName = () => {
-    dispatch(setUserInfo("Simply-Admin"));
+    dispatch(setUserInfo("simply admin"));
   };
+
   return (
     <>
       <div>{userInfo.name}</div>

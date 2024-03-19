@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+// import { useNavigate } from "react-router-dom";
 import md5 from "md5";
 
+import { useDispatch } from "@/stores/index.ts";
 import { loginApi } from "@/api/modules/login";
-import { setToken } from "@/store/modules/user";
+import { setToken } from "@/stores/modules/user";
+import usePermission from "@/hooks/usePermission";
 
 import VerificationCode from "@/components/VerificationCode";
 import { Button, Form, Input } from "antd";
@@ -19,8 +20,10 @@ type LoginFormType = {
 };
 
 const LoginForm: React.FC = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  const { initPermission } = usePermission();
+
   const generateRandomString = () => Math.random().toString(36).substring(2, 8);
   const [code, setCode] = useState(generateRandomString());
 
@@ -37,7 +40,8 @@ const LoginForm: React.FC = () => {
   const onFinish = async (formData: LoginReqType) => {
     const { data } = await loginApi({ ...formData, password: md5(formData.password) });
     dispatch(setToken(data.access_token));
-    navigate("/home", { replace: true });
+    await initPermission(data.access_token);
+    // navigate("/home/index");
   };
 
   return (
