@@ -1,11 +1,13 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
+
 import type { ThemeStateType } from "@/stores/interface/index.ts";
 
 const themeState: ThemeStateType = {
   isDark: false,
   themeColor: "",
-  language: null
+  language: null,
+  layout: "classic"
 };
 
 // 创建样式 stores
@@ -22,7 +24,5 @@ const useThemeSlice = createSlice({
   }
 });
 
-const { setTheme } = useThemeSlice.actions;
-
-export { setTheme };
+export const { setTheme } = useThemeSlice.actions;
 export default useThemeSlice.reducer;

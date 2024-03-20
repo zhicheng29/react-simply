@@ -8,11 +8,13 @@ export interface UserStateType {
 
 // theme
 export type LanguageType = "zh" | "en" | null;
+export type Layout = "classic" | "horizontal" | "column" | "vertical";
 
 export interface ThemeStateType {
   isDark: boolean;
   language: LanguageType;
   themeColor: string;
+  layout: Layout;
 }
 
 export interface AuthState {

@@ -1,8 +1,10 @@
 import React, { Suspense } from "react";
 
+import { PageLoader } from "@/components/Loading/index.tsx";
+
 const LazyComponent = (Comp: React.LazyExoticComponent<React.ComponentType>) => {
   return (
-    <Suspense>
+    <Suspense fallback={<PageLoader />}>
       <Comp />
     </Suspense>
   );

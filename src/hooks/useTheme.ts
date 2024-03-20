@@ -5,12 +5,14 @@ import { useSelector } from "@/stores/index.ts";
 import { globalTheme } from "@/styles/theme/global";
 import { setStyleProperty } from "@/utils";
 
+import { peloadVarCss } from "@/constants/config.ts";
+
 import type { RootStateType } from "src/stores";
 
-// import { theme } from "antd";
+import { theme } from "antd";
 
 const useTheme = () => {
-  // const { token } = theme.useToken();
+  const { token } = theme.useToken();
 
   const { isDark } = useSelector(
     (state: RootStateType) => ({
@@ -23,7 +25,11 @@ const useTheme = () => {
   const changePrimary = () => {
     const type = isDark ? "dark" : "light";
     Object.entries(globalTheme[type]).forEach(([key, val]) => setStyleProperty(key, val));
-    // Object.entries(token).forEach(([key, val]) => setStyleProperty(`--symbol-${key}`, val));
+    Object.entries(token).forEach(([key, val]) => {
+      if (peloadVarCss.includes(key)) {
+        setStyleProperty(`--symbol-${key}`, val);
+      }
+    });
   };
 
   useEffect(changePrimary, [isDark]);
