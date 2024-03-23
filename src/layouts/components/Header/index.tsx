@@ -1,7 +1,13 @@
 import React from "react";
 
+import { Layout } from "antd";
+
+import "./index.less";
+
+const { Header } = Layout;
+
 const LayoutHeader: React.FC = () => {
-  return <div>头部</div>;
+  return <Header className="layout-header">Header</Header>;
 };
 
 export default LayoutHeader;

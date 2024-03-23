@@ -1,0 +1,18 @@
+.layout-classic {
+  display: flex;
+  height: 100%;
+  .layout-sider {
+    flex: 0 0 210px !important;
+    background-color: var(--simply-containerBgColor);
+    .ant-layout-sider-children {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .layout-sider,
+  .layout-menu {
+    width: 210px !important;
+    min-width: 210px !important;
+    max-width: 210px !important;
+  }
+}

@@ -6,16 +6,23 @@ import LayoutTabs from "@/layouts/components/Tabs/index.tsx";
 import LayoutMain from "@/layouts/components/Main/index.tsx";
 import LayoutFooter from "@/layouts/components/Footer/index.tsx";
 
+import { Layout } from "antd";
+
+import "./index.less";
+
 const LayoutClassic: React.FC = () => {
   return (
-    <div>
-      经典布局
-      <LayoutHeader />
-      <LayoutMenu />
-      <LayoutTabs />
-      <LayoutMain />
-      <LayoutFooter />
-    </div>
+    <section className="layout-classic">
+      <Layout>
+        <LayoutMenu />
+        <Layout>
+          <LayoutHeader />
+          <LayoutTabs />
+          <LayoutMain />
+          <LayoutFooter />
+        </Layout>
+      </Layout>
+    </section>
   );
 };
 

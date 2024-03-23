@@ -7,6 +7,8 @@ import LayoutHorizontal from "@/layouts/LayoutHorizontal";
 import LayoutVertical from "@/layouts/LayoutVertical";
 import LayoutColumn from "@/layouts/LayoutColumn";
 
+import "./index.less";
+
 import type { RootStateType } from "@/stores";
 
 const layoutComponents = {
@@ -18,7 +20,7 @@ const layoutComponents = {
 
 const LayoutIndex: React.FC = () => {
   const layout = useSelector((state: RootStateType) => state.theme.layout);
-  return <div>{layoutComponents[layout]}</div>;
+  return <React.Fragment>{layoutComponents[layout]}</React.Fragment>;
 };
 
 export default LayoutIndex;
