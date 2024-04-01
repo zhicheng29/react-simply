@@ -1,4 +1,4 @@
-import { getAuthMenuListApi } from "@/api/modules/auth.ts";
+import { getAuthApi } from "@/api/modules/auth.ts";
 import { useDispatch } from "@/stores/index.ts";
 import { setToken } from "@/stores/modules/user.ts";
 import { setAuthMenuList } from "@/stores/modules/auth.ts";
@@ -9,9 +9,9 @@ const usePermission = () => {
   const initPermission = async (token: string) => {
     if (token) {
       try {
-        const { data: menuList } = await getAuthMenuListApi();
-        dispatch(setAuthMenuList(menuList));
-        if (!menuList.length) {
+        const { data: authData } = await getAuthApi();
+        dispatch(setAuthMenuList(authData.authMenuList));
+        if (!authData.authMenuList.length) {
           dispatch(setToken(""));
           return Promise.reject("无菜单权限");
         }

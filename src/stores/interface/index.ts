@@ -17,7 +17,8 @@ export interface ThemeStateType {
   layout: Layout;
 }
 
+export type FlatMenuType = RouteObjectType[];
+
 export interface AuthState {
   authMenuList: RouteObjectType[];
-  flatMenuList: RouteObjectType[];
 }

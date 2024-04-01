@@ -1,16 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AuthState } from "@/stores/interface";
+import { AuthState, FlatMenuType } from "@/stores/interface";
 
 import { getFlatMenuList } from "@/utils";
 
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-const initialAuthState: AuthState = {
+interface PermissionState {
+  authMenuList: AuthState["authMenuList"];
+  flatMenuList: FlatMenuType;
+}
+
+const initialAuthState: PermissionState = {
   authMenuList: [],
   flatMenuList: []
 };
 
-// 菜单模块
+// 权限模块
 const useAuthSlice = createSlice({
   name: "auth",
   initialState: initialAuthState,

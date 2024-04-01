@@ -1,41 +1,50 @@
 import React from "react";
 import { AppstoreOutlined } from "@ant-design/icons";
-import type { MenuProps } from "antd";
 import { Menu, Layout } from "antd";
+
+import { useSelector } from "@/stores";
 
 import logo from "@/assets/images/logo.svg";
 
 import "./index.less";
 
+import type { MenuProps } from "antd";
+import type { RootStateType } from "@/stores";
+import type { RouteObjectType } from "@/routers/interface";
+
 type MenuItem = Required<MenuProps>["items"][number];
 
-const { Sider } = Layout;
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-  type?: "group"
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type
-  } as MenuItem;
-}
-
-const items: MenuProps["items"] = [
-  getItem("Navigation Two", "sub2", <AppstoreOutlined />, [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
-    getItem("Submenu", "sub3", null, [getItem("Option 7", "7"), getItem("Option 8", "8")])
-  ])
-];
-
 const LayoutMenu: React.FC = () => {
+  const { Sider } = Layout;
+
+  const menuList = useSelector((state: RootStateType) => state.authMenu.authMenuList);
+
+  function getItem(
+    label: React.ReactNode,
+    key?: React.Key | null,
+    icon?: React.ReactNode,
+    children?: MenuItem[],
+    type?: "group"
+  ): MenuItem {
+    return {
+      key,
+      icon,
+      children,
+      label,
+      type
+    } as MenuItem;
+  }
+
+  const handleMenuFormat = (menu: RouteObjectType[]): MenuItem[] => {
+    return menu.map(item => {
+      return item.children?.length
+        ? getItem(item.meta?.title, item.path, <AppstoreOutlined />, handleMenuFormat(item.children))
+        : getItem(item.meta?.title, item.path);
+    });
+  };
+
+  const authMenuList = handleMenuFormat(menuList);
+
   const onClick: MenuProps["onClick"] = e => {
     console.log("click ", e);
   };
@@ -46,15 +55,7 @@ const LayoutMenu: React.FC = () => {
         <img src={logo} alt="logo"></img>
         <h2>Simply Admin</h2>
       </div>
-      <Menu
-        onClick={onClick}
-        style={{ width: 256 }}
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
-        mode="inline"
-        items={items}
-        className="layout-menu"
-      />
+      <Menu onClick={onClick} mode="inline" items={authMenuList} className="layout-menu" />
     </Sider>
   );
 };

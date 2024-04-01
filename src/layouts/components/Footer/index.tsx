@@ -12,7 +12,7 @@ const LayoutFooter: React.FC = () => {
   return (
     <React.Fragment>
       <Footer className="layout-footer">
-        <a href="https://github.com/zhicheng29" target="_blank" rel="noreferrer">
+        <a href="https://github.com/zhicheng29" target="_blank">
           2024 © {APP_TITLE} By Simply Technology.
         </a>
       </Footer>

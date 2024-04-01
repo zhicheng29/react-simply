@@ -13,14 +13,12 @@ import "./index.less";
 const LayoutClassic: React.FC = () => {
   return (
     <section className="layout-classic">
+      <LayoutMenu />
       <Layout>
-        <LayoutMenu />
-        <Layout>
-          <LayoutHeader />
-          <LayoutTabs />
-          <LayoutMain />
-          <LayoutFooter />
-        </Layout>
+        <LayoutHeader />
+        <LayoutTabs />
+        <LayoutMain />
+        <LayoutFooter />
       </Layout>
     </section>
   );

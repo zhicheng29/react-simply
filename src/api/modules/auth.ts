@@ -5,7 +5,7 @@ import RequestHttp from "@/api";
 import type { AuthState } from "@/stores/interface/index.ts";
 
 // 权限菜单
-export const getAuthMenuListApi = () => {
-  return RequestHttp.get<AuthState["authMenuList"]>("/hooks" + `/menu/list`);
+export const getAuthApi = () => {
+  return RequestHttp.get<AuthState>("/permission");
   // return authMenuList;
 };
