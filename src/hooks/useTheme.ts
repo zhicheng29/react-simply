@@ -27,7 +27,7 @@ const useTheme = () => {
     Object.entries(globalTheme[type]).forEach(([key, val]) => setStyleProperty(key, val));
     Object.entries(token).forEach(([key, val]) => {
       if (peloadVarCss.includes(key)) {
-        setStyleProperty(`--symbol-${key}`, val);
+        setStyleProperty(`--simply-${key}`, val);
       }
     });
   };

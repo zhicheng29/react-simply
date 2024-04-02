@@ -1,23 +1,23 @@
 @import url("@/assets/fonts/font.less");
 .layout-sider {
-  .layout-logo-container {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    height: 55px;
-    border-right: 1px solid var(--simply-color-split);
-    img {
-      width: 30px;
-      height: 30px;
-    }
-    h2 {
-      margin: 0 0 0 5px;
-      font-family: SourceHanSansCN-Regular;
-      font-weight: bold;
-    }
-  }
-  .layout-menu {
+  .ant-layout-sider-children {
     height: 100%;
+    border-right: 1px solid var(--simply-colorSplit);
+    .layout-logo-container {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      height: 55px;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      h2 {
+        margin: 0 0 0 5px;
+        font-family: SourceHanSansCN-Regular;
+        font-weight: bold;
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-
+import * as Icons from "@ant-design/icons";
 import { createFromIconfontCN } from "@ant-design/icons";
 
 interface IconProps {
@@ -12,5 +12,7 @@ export const IconFont = createFromIconfontCN({
 });
 
 export const Icon: React.FC<IconProps> = ({ IconName, className }) => {
-  return <IconFont type={IconName} className={className} />;
+  const customIcons: { [key: string]: any } = Icons;
+  if (!IconName) return;
+  return React.createElement(customIcons[IconName], { className });
 };

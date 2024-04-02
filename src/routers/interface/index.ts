@@ -6,9 +6,7 @@ export interface MetaProps {
   title?: string;
   activeMenu?: string;
   isLink?: string;
-  isHide?: boolean;
   isFull?: boolean;
-  isAffix?: boolean;
   // isKeepAlive?: boolean;
 }
 

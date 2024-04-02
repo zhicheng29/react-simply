@@ -13,7 +13,11 @@ const LayoutFooter: React.FC = () => {
     <React.Fragment>
       <Footer className="layout-footer">
         <a href="https://github.com/zhicheng29" target="_blank">
-          2024 © {APP_TITLE} By Simply Technology.
+          2024 © {APP_TITLE}
+        </a>
+        <span> | </span>
+        <a href="https://beian.miit.gov.cn/" target="_blank">
+          赣ICP备2023002554号-2
         </a>
       </Footer>
     </React.Fragment>
