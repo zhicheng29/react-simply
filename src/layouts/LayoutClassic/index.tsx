@@ -19,7 +19,7 @@ const LayoutClassic: React.FC = () => {
   const { isCollapsed } = useSelector(state => state.global);
   return (
     <section className="layout-classic">
-      <Sider className="layout-sider" width={210} collapsed={isCollapsed}>
+      <Sider width={210} collapsed={isCollapsed}>
         <div className="layout-logo-container">
           <img src={logo} alt="logo" className="layout-logo-img"></img>
           {!isCollapsed && <h2 className="layout-logo-title">Simply Admin</h2>}

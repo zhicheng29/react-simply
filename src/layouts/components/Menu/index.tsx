@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "@/stores";
 
 import { Menu } from "antd";
-// import { IconFont } from "@/components/Icon";
 
 import "./index.less";
 

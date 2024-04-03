@@ -1,12 +1,14 @@
 import React from "react";
 
+import CollapseIcon from "./components/CollapseIcon";
+
 import "./index.less";
 
 const HeaderLeft: React.FC = () => {
   return (
-    <React.Fragment>
-      <div>左侧</div>
-    </React.Fragment>
+    <div className="layout-header-left">
+      <CollapseIcon />
+    </div>
   );
 };
 

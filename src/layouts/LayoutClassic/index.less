@@ -1,9 +1,10 @@
 .layout-classic {
   display: flex;
   height: 100%;
-  .layout-sider {
+  .ant-layout-sider {
     background: var(--simply-color-bg-container);
-    .ant-layout-sider-children {
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+    &-children {
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -23,6 +24,7 @@
           margin: 0 0 0 5px;
           font-family: SourceHanSansCN-Regular;
           font-weight: bold;
+          white-space: nowrap;
         }
       }
       .ant-menu-root {
