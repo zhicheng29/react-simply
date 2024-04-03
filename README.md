@@ -1,8 +1,8 @@
 # TODO
 
-- [ ] 完成redux持久化
-- [ ] 完成layout基础布局
-- [ ] router拦截与router转化，router跳转的进度条
+- [x] 完成redux持久化
+- [x] 完成layout基础布局
+- [x] router拦截与router转化，router跳转的进度条
 - [ ] 挂载自定义组件的样式变量，切换主题时切换变量
 - [ ] 添加请求接口提示信息，请求时loading
 - [ ] 优化白屏
