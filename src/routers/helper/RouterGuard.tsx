@@ -18,7 +18,7 @@ const RouterGuard: React.FC<RouterGuardProps> = props => {
   window.$navigate = navigate;
 
   const token = useSelector((state: RootStateType) => state.user.token);
-  const authMenuList = useSelector((state: RootStateType) => state.authMenu.authMenuList);
+  const authMenuList = useSelector((state: RootStateType) => state.auth.authMenuList);
 
   useEffect(() => {
     const meta = loader as MetaProps;

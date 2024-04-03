@@ -5,19 +5,19 @@ import storage from "redux-persist/lib/storage"; // 存储
 import { thunk } from "redux-thunk"; // 异步
 
 import user from "@/stores/modules/user";
-import theme from "@/stores/modules/theme";
-import authMenu from "@/stores/modules/auth";
+import global from "@/stores/modules/global.ts";
+import auth from "@/stores/modules/auth";
 
 import type { Middleware } from "@reduxjs/toolkit";
 
 // 使用 combineReducers 合并子模块
-const reducer = combineReducers({ user, theme, authMenu });
+const reducer = combineReducers({ user, global, auth });
 
 // persist 配置
 const persistConfig = {
   key: "redux_state",
   storage,
-  blacklist: ["authMenu"]
+  blacklist: ["auth"]
 };
 
 // 使用 persistReducer 包裹 reducer，以便在持久化时进行处理

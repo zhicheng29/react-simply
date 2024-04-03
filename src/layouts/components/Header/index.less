@@ -1,5 +1,30 @@
-.layout-header {
-  height: 55px;
-  padding: 0 20px;
-  line-height: 55px;
+.layout-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-icon {
+    height: 55px;
+    i {
+      margin: 0 10px;
+      font-size: 20px;
+      color: var(--simply-color-text-base);
+      cursor: pointer;
+    }
+  }
+  &-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100px;
+    margin-left: 20px;
+    .user-name {
+      width: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .avatar {
+      cursor: pointer;
+    }
+  }
 }

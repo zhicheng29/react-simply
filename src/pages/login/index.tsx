@@ -6,14 +6,16 @@ import LoginForm from "@/pages/login/components/LoginForm.tsx";
 import ImgUrl from "@/assets/images/login_form_img.png";
 
 import "./index.less";
+import { useSelector } from "@/stores";
 
 const Login: React.FC = () => {
   const [showWelcome, setShowWelcome] = useState(true);
+  const { beginAnimation } = useSelector(state => state.global);
 
   return (
     <div className="lint-container">
-      <Welcome showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
-      <div className={["login-container", showWelcome ? "" : "show-login"].join(" ")}>
+      {beginAnimation && <Welcome showWelcome={showWelcome} setShowWelcome={setShowWelcome} />}
+      <div className={`login-container ${showWelcome ? "" : "show-login"} ${!beginAnimation ? "hidden-animation" : ""}`}>
         <div className="login-content">
           <div className="login-illustration">
             <img src={ImgUrl} alt="illustration"></img>

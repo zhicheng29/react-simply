@@ -3,6 +3,7 @@ import { RouterProvider as Router, createHashRouter, createBrowserRouter } from 
 
 import { useSelector } from "@/stores";
 import useTheme from "@/hooks/useTheme";
+import useMessage from "@/hooks/useMessage";
 import usePermission from "@/hooks/usePermission.ts";
 import { wrappedStaticRouter } from "@/routers/modules/staticRouters.tsx";
 import { convertToDynamicRouterFormat } from "@/routers/helper/ConvertRouter.tsx";
@@ -15,11 +16,12 @@ import type { RouteObjectType } from "@/routers/interface";
 
 const RouterProvider: React.FC = () => {
   useTheme();
+  useMessage();
 
   const { initPermission } = usePermission();
 
   const token = useSelector((state: RootStateType) => state.user.token);
-  const authMenuList = useSelector((state: RootStateType) => state.authMenu.authMenuList);
+  const authMenuList = useSelector((state: RootStateType) => state.auth.authMenuList);
 
   const [routerList, setRouterList] = useState<RouteObjectType[]>(wrappedStaticRouter);
 

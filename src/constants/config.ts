@@ -3,4 +3,4 @@ export const HOMEPATH = "/home/index";
 export const LOGINPATH = "/login";
 
 // var css
-export const peloadVarCss = ["colorText", "colorPrimary", "colorSplit", "colorBgContainer"];
+export const preloadVarCss = ["colorText", "colorPrimary", "colorSplit", "colorBgContainer", "colorTextBase"];

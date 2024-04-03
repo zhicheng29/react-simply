@@ -1,19 +1,20 @@
 .layout-footer {
   display: flex;
+  flex-direction: column;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  height: 30px;
+  height: 60px;
   padding: 0;
-  span {
-    margin: 0 10px;
-    color: #858585;
-  }
   a {
     font-size: 14px;
-    color: #858585;
+    color: var(--simply-color-text-tertiary);
     text-decoration: none;
     letter-spacing: 0.5px;
     white-space: nowrap;
+    &:last-child {
+      margin-top: 2px;
+      color: var(--simply-color-text-quaternary);
+    }
   }
 }

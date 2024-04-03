@@ -27,7 +27,7 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off",
 
     // react-hooks (https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "react-hooks/rules-of-hooks": "error",
 
     // react-refresh (https://github.com/ArnaudBarre/eslint-plugin-react-refresh)

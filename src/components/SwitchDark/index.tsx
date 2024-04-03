@@ -1,18 +1,18 @@
 import React, { MouseEventHandler } from "react";
 
 import { useSelector, useDispatch } from "@/stores/index.ts";
-import { setTheme } from "@/stores/modules/theme";
+import { setGlobal } from "@/stores/modules/global";
 
 import { Button } from "antd";
 import { IconFont } from "@/components/Icon";
 
 const SwitchDark: React.FC = () => {
   const dispatch = useDispatch();
-  const { isDark: dark } = useSelector(state => state.theme);
+  const { isDark: dark } = useSelector(state => state.global);
 
   // 切换主题函数
   const toggleTheme: MouseEventHandler<HTMLElement> = event => {
-    dispatch(setTheme({ key: "isDark", value: !dark }));
+    dispatch(setGlobal({ key: "isDark", value: !dark }));
     // 鼠标 x 坐标
     const x = event.clientX;
     // 鼠标 y 坐标

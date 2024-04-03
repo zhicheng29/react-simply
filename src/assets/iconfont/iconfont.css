@@ -1,0 +1,50 @@
+@font-face {
+  font-family: iconfont;  /* Project id 4455947 */
+  src: url('//at.alicdn.com/t/c/font_4455947_p5qlq420399.woff2?t=1712127773423') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4455947_p5qlq420399.woff?t=1712127773423') format('woff'),
+       url('//at.alicdn.com/t/c/font_4455947_p5qlq420399.ttf?t=1712127773423') format('truetype');
+}
+.iconfont {
+  font-family: iconfont !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-form::before {
+  content: "\e715";
+}
+.icon-animation::before {
+  content: "\e601";
+}
+.icon-home::before {
+  content: "\e629";
+}
+.icon-webrtc::before {
+  content: "\e66b";
+}
+.icon-docs::before {
+  content: "\e61f";
+}
+.icon-table::before {
+  content: "\e7a2";
+}
+.icon-fullscreen::before {
+  content: "\e607";
+}
+.icon-exitfullscreen::before {
+  content: "\e600";
+}
+.icon-translate::before {
+  content: "\e769";
+}
+.icon-simply::before {
+  content: "\e611";
+}
+.icon-moon::before {
+  content: "\e866";
+}
+.icon-sun::before {
+  content: "\e60c";
+}
+

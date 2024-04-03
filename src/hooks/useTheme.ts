@@ -5,7 +5,7 @@ import { useSelector } from "@/stores/index.ts";
 import { globalTheme } from "@/styles/theme/global";
 import { setStyleProperty } from "@/utils";
 
-import { peloadVarCss } from "@/constants/config.ts";
+import { preloadVarCss } from "@/constants/config.ts";
 
 import type { RootStateType } from "src/stores";
 
@@ -16,8 +16,8 @@ const useTheme = () => {
 
   const { isDark } = useSelector(
     (state: RootStateType) => ({
-      isDark: state.theme.isDark,
-      themeColor: state.theme.themeColor
+      isDark: state.global.isDark,
+      themeColor: state.global.themeColor
     }),
     shallowEqual
   );
@@ -26,7 +26,7 @@ const useTheme = () => {
     const type = isDark ? "dark" : "light";
     Object.entries(globalTheme[type]).forEach(([key, val]) => setStyleProperty(key, val));
     Object.entries(token).forEach(([key, val]) => {
-      if (peloadVarCss.includes(key)) {
+      if (preloadVarCss.includes(key)) {
         setStyleProperty(`--simply-${key}`, val);
       }
     });

@@ -19,7 +19,7 @@ const layoutComponents = {
 };
 
 const LayoutIndex: React.FC = () => {
-  const layout = useSelector((state: RootStateType) => state.theme.layout);
+  const layout = useSelector((state: RootStateType) => state.global.layout);
   return <React.Fragment>{layoutComponents[layout]}</React.Fragment>;
 };
 

@@ -1,4 +1,4 @@
-import { RouteObjectType } from "@/routers/interface";
+import type { RouteObjectType } from "@/routers/interface";
 
 /**
  * @description 获取系统语言

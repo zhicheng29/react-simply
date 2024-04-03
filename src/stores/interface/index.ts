@@ -10,11 +10,13 @@ export interface UserStateType {
 export type LanguageType = "zh" | "en" | null;
 export type Layout = "classic" | "horizontal" | "column" | "vertical";
 
-export interface ThemeStateType {
+export interface GlobalStateType {
   isDark: boolean;
+  isCollapsed: boolean;
   language: LanguageType;
   themeColor: string;
   layout: Layout;
+  beginAnimation: boolean;
 }
 
 export type FlatMenuType = RouteObjectType[];
