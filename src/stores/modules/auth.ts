@@ -23,9 +23,13 @@ const useAuthSlice = createSlice({
     setAuthMenuList(state, { payload }: PayloadAction<AuthState["authMenuList"]>) {
       state.authMenuList = payload;
       state.flatMenuList = getFlatMenuList(payload);
+    },
+    clearAuthList(state) {
+      state.authMenuList = [];
+      state.flatMenuList = [];
     }
   }
 });
 
-export const { setAuthMenuList } = useAuthSlice.actions;
+export const { setAuthMenuList, clearAuthList } = useAuthSlice.actions;
 export default useAuthSlice.reducer;

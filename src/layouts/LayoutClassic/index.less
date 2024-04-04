@@ -3,7 +3,6 @@
   height: 100%;
   .ant-layout-sider {
     background: var(--simply-color-bg-container);
-    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
     &-children {
       display: flex;
       flex-direction: column;
@@ -15,19 +14,32 @@
         align-items: center;
         justify-content: center;
         height: 55px;
+        overflow: hidden;
         color: var(--simply-color-text-base);
         .layout-logo-img {
           width: 30px;
           height: 30px;
         }
         .layout-logo-title {
+          width: fit-content;
           margin: 0 0 0 5px;
           font-family: SourceHanSansCN-Regular;
           font-weight: bold;
           white-space: nowrap;
+          &.hide-title {
+            width: 0;
+            margin: 0;
+            opacity: 0;
+            transition:
+              opacity var(--simply-motion-duration-slow) var(--simply-motion-ease-in-out),
+              width var(--simply-motion-duration-slow) var(--simply-motion-ease-in-out),
+              margin var(--simply-motion-duration-slow) var(--simply-motion-ease-in-out);
+          }
         }
       }
       .ant-menu-root {
+        width: 100%;
+        overflow-y: auto;
         background: var(--simply-color-bg-container);
         border-right: none;
         .ant-menu-item-icon {

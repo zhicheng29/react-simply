@@ -7,8 +7,9 @@ import { HOMEPATH } from "@/constants/config.ts";
 import { useDispatch } from "@/stores/index.ts";
 import { loginApi } from "@/api/modules/login";
 import { setToken } from "@/stores/modules/user";
-import usePermission from "@/hooks/usePermission";
+import { setGlobal } from "@/stores/modules/global";
 import { message } from "@/hooks/useMessage";
+import usePermission from "@/hooks/usePermission";
 
 import VerificationCode from "@/components/VerificationCode";
 import { Button, Form, Input } from "antd";
@@ -17,7 +18,7 @@ import { LockOutlined, UserOutlined, LoginOutlined, CloseCircleOutlined, SafetyC
 import Logo from "@/assets/images/logo.svg";
 
 import type { LoginReqType } from "@/api/interface";
-import { setGlobal } from "@/stores/modules/global";
+import type { RuleObject } from "antd/es/form";
 
 type LoginFormType = {
   username?: string;
@@ -27,6 +28,7 @@ type LoginFormType = {
 
 const LoginForm: React.FC = () => {
   const key = "loginLoading";
+  const [loginForm] = Form.useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { initPermission } = usePermission();
@@ -43,6 +45,14 @@ const LoginForm: React.FC = () => {
 
   const changeVCode = () => {
     setCode(generateRandomString());
+    // setFieldValue 无法重置校验信息
+    loginForm.setFieldsValue({ vcode: "" });
+  };
+
+  const validateVCode = (_rule: RuleObject, value: string | undefined) => {
+    if (!value) return Promise.reject(new Error("请输入验证码"));
+    if (value.toLowerCase() !== code) return Promise.reject(new Error("验证码错误"));
+    return Promise.resolve();
   };
 
   const onFinish = async (formData: LoginReqType) => {
@@ -50,10 +60,10 @@ const LoginForm: React.FC = () => {
       setLoading(true);
       message.open({ key, type: "loading", content: "登录中" });
       const { data } = await loginApi({ ...formData, password: md5(formData.password) });
-      message.open({ key, type: "success", content: "登录成功" });
       dispatch(setToken(data.access_token));
       dispatch(setGlobal({ key: "beginAnimation", value: false }));
       await initPermission(data.access_token);
+      message.open({ key, type: "success", content: "登录成功" });
       navigate(HOMEPATH);
     } finally {
       setLoading(false);
@@ -67,18 +77,14 @@ const LoginForm: React.FC = () => {
         <img src={Logo} alt="logo" />
         <span>Simply-Admin</span>
       </div>
-      <Form name="login" size="large" autoComplete="on" onFinish={onFinish} initialValues={initialFormData}>
+      <Form form={loginForm} name="login" size="large" autoComplete="on" onFinish={onFinish} initialValues={initialFormData}>
         <Form.Item<LoginFormType> name="username" rules={[{ required: true, message: "请输入用户名" }]}>
           <Input allowClear placeholder="用户名" prefix={<UserOutlined />} />
         </Form.Item>
         <Form.Item<LoginFormType> name="password" rules={[{ required: true, message: "请输入密码" }]}>
           <Input.Password allowClear placeholder="密码" prefix={<LockOutlined />} />
         </Form.Item>
-        <Form.Item<LoginFormType>
-          name="vcode"
-          className="login-form-vcodeInput"
-          rules={[{ required: true, message: "请输入验证码" }]}
-        >
+        <Form.Item<LoginFormType> name="vcode" className="login-form-vcodeInput" rules={[{ validator: validateVCode }]}>
           <Input allowClear placeholder="验证码" prefix={<SafetyCertificateOutlined />} />
         </Form.Item>
         <div className="login-form-vcode" onClick={changeVCode}>

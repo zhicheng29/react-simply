@@ -22,7 +22,7 @@ const LayoutClassic: React.FC = () => {
       <Sider width={210} collapsed={isCollapsed}>
         <div className="layout-logo-container">
           <img src={logo} alt="logo" className="layout-logo-img"></img>
-          {!isCollapsed && <h2 className="layout-logo-title">Simply Admin</h2>}
+          <h2 className={`layout-logo-title ${isCollapsed ? "hide-title" : ""}`}>Simply Admin</h2>
         </div>
         <LayoutMenu />
       </Sider>

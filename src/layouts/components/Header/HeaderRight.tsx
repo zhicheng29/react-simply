@@ -1,6 +1,6 @@
 import React from "react";
 
-import Screen from "./components/Screen.tsx";
+import FullScreen from "./components/FullScreen.tsx";
 import SwitchDark from "./components/SwitchDark.tsx";
 import Language from "./components/Language.tsx";
 import AvatarCom from "./components/Avatar.tsx";
@@ -13,7 +13,7 @@ const HeaderRight: React.FC = () => {
       <div className="layout-header-right-icon">
         <SwitchDark />
         <Language />
-        <Screen />
+        <FullScreen />
       </div>
       <div className="layout-header-right-user">
         <span className="user-name">USER</span>

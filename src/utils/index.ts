@@ -12,15 +12,6 @@ export function getSystemLanguage(): "zh" | "en" {
 }
 
 /**
- * @description 挂载全局样式变量
- * @param {String} key - 变量名
- * @param {String} val - 样式值
- */
-export function setStyleProperty(key: string, val: string) {
-  document.documentElement.style.setProperty(key, val);
-}
-
-/**
  * @description 递归扁平化菜单列表
  * @param {Array} menuList - 菜单列表
  * @returns {Array}

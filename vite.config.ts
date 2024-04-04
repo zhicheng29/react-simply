@@ -21,7 +21,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       cors: true,
       proxy: {
         "/api": {
-          target: "https://simply.usemock.com",
+          target: " https://mock.mengxuegu.com/mock/660e52e1ac0dab169078eb9b/simply",
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, "")
         }

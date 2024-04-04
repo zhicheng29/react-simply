@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import { LOGINPATH } from "@/constants/config";
 
+import { useDispatch } from "@/stores";
+import { setToken } from "@/stores/modules/user";
+import { clearAuthList } from "@/stores/modules/auth";
 import { message, modal } from "@/hooks/useMessage";
 
 import EditPassDrawer from "./EditPassDrawer";
@@ -13,8 +16,6 @@ import { LoginOutlined, UserOutlined, EditOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import type { EditPassDrawerRef } from "./EditPassDrawer";
 import type { EditInfoDrawerRef } from "./EditInfoDrawer";
-import { useDispatch } from "@/stores";
-import { setToken } from "@/stores/modules/user";
 
 const AvatarCom: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const AvatarCom: React.FC = () => {
       cancelText: "取消",
       onOk: () => {
         dispatch(setToken(""));
+        dispatch(clearAuthList());
         navigate(LOGINPATH);
         message.success("已退出登录");
       }
