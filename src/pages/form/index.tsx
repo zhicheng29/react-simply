@@ -3,7 +3,7 @@ import React from "react";
 const FormCom: React.FC = () => {
   return (
     <React.Fragment>
-      <div>表单</div>
+      <div>form</div>
     </React.Fragment>
   );
 };

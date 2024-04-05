@@ -3,7 +3,7 @@ import React from "react";
 const TableCom: React.FC = () => {
   return (
     <React.Fragment>
-      <div>表格</div>
+      <div>table</div>
     </React.Fragment>
   );
 };
