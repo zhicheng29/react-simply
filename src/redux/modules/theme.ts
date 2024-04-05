@@ -1,7 +1,7 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 
-import type { ThemeStateType } from "@/stores/interface/index.ts";
+import type { ThemeStateType } from "@/redux/interface";
 
 const themeState: ThemeStateType = {
   isDark: false,

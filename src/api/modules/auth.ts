@@ -2,7 +2,7 @@ import RequestHttp from "@/api";
 
 // import authMenuList from "@/constants/json/authMenuList.json";
 
-import type { AuthState } from "@/stores/interface/index.ts";
+import type { AuthState } from "@/redux/interface";
 
 // 权限菜单
 export const getAuthApi = () => {

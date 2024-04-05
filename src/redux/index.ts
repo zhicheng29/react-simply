@@ -1,12 +1,12 @@
 import { useDispatch as useReduxDisPatch, useSelector as useReduxSelector, TypedUseSelectorHook } from "react-redux";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist"; // 持久化
-import storage from "redux-persist/lib/storage"; // 存储
-import { thunk } from "redux-thunk"; // 异步
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { thunk } from "redux-thunk";
 
-import user from "@/stores/modules/user";
-import theme from "@/stores/modules/theme";
-import auth from "@/stores/modules/auth";
+import user from "@/redux/modules/user";
+import theme from "@/redux/modules/theme";
+import auth from "@/redux/modules/auth";
 
 import type { Middleware } from "@reduxjs/toolkit";
 

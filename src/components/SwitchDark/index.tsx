@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react";
 
-import { useSelector, useDispatch } from "@/stores/index.ts";
-import { setTheme } from "@/stores/modules/theme";
+import { useSelector, useDispatch } from "@/redux";
+import { setTheme } from "@/redux/modules/theme";
 
 import { Button } from "antd";
 import { IconFont } from "@/components/Icon";

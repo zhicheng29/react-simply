@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import { LOGINPATH } from "@/constants/config";
 
-import { useDispatch } from "@/stores";
-import { setToken } from "@/stores/modules/user";
-import { clearAuthList } from "@/stores/modules/auth";
+import { useDispatch } from "@/redux";
+import { setToken } from "@/redux/modules/user";
+import { clearAuthList } from "@/redux/modules/auth";
 import { message, modal } from "@/hooks/useMessage";
 
 import EditPassDrawer from "./EditPassDrawer";

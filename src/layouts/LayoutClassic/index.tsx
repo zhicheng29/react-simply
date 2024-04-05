@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useSelector } from "@/stores";
+import { useSelector } from "@/redux";
 
 import { Layout } from "antd";
 import HeaderRight from "@/layouts/components/Header/HeaderRight";

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector } from "@/stores";
+import { useSelector } from "@/redux";
 import { MetaProps } from "@/routers/interface";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { HOMEPATH, LOGINPATH } from "@/constants/config.ts";
 
-import type { RootStateType } from "@/stores";
+import type { RootStateType } from "@/redux";
 
 interface RouterGuardProps {
   children: React.ReactNode;

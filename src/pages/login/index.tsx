@@ -6,7 +6,7 @@ import LoginForm from "@/pages/login/components/LoginForm.tsx";
 import ImgUrl from "@/assets/images/login_form_img.png";
 
 import "./index.less";
-import { useSelector } from "@/stores";
+import { useSelector } from "@/redux";
 
 const Login: React.FC = () => {
   const [showWelcome, setShowWelcome] = useState(true);

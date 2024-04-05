@@ -1,7 +1,7 @@
 import { getAuthApi } from "@/api/modules/auth.ts";
-import { useDispatch } from "@/stores/index.ts";
-import { setToken } from "@/stores/modules/user.ts";
-import { setAuthMenuList } from "@/stores/modules/auth.ts";
+import { useDispatch } from "@/redux";
+import { setToken } from "@/redux/modules/user";
+import { setAuthMenuList } from "@/redux/modules/auth";
 import { notification } from "./useMessage";
 
 const usePermission = () => {

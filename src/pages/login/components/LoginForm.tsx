@@ -4,10 +4,10 @@ import md5 from "md5";
 
 import { HOMEPATH } from "@/constants/config.ts";
 
-import { useDispatch } from "@/stores/index.ts";
+import { useDispatch } from "@/redux";
 import { loginApi } from "@/api/modules/login";
-import { setToken } from "@/stores/modules/user";
-import { setTheme } from "@/stores/modules/theme";
+import { setToken } from "@/redux/modules/user";
+import { setTheme } from "@/redux/modules/theme";
 import { message } from "@/hooks/useMessage";
 import usePermission from "@/hooks/usePermission";
 

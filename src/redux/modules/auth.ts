@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AuthState, FlatMenuType } from "@/stores/interface";
+import { AuthState, FlatMenuType } from "@/redux/interface";
 
 import { getFlatMenuList } from "@/utils";
 

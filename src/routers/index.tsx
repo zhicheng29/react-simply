@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RouterProvider as Router, createHashRouter, createBrowserRouter } from "react-router-dom";
 
-import { useSelector } from "@/stores";
+import { useSelector } from "@/redux";
 import useTheme from "@/hooks/useTheme";
 import useMessage from "@/hooks/useMessage";
 import usePermission from "@/hooks/usePermission.ts";
@@ -11,7 +11,7 @@ import { convertToDynamicRouterFormat } from "@/routers/helper/ConvertRouter.tsx
 import NotFound from "@/components/Error/404.tsx";
 
 import type { RouteObject } from "react-router-dom";
-import type { RootStateType } from "@/stores";
+import type { RootStateType } from "@/redux";
 import type { RouteObjectType } from "@/routers/interface";
 
 const RouterProvider: React.FC = () => {
@@ -44,7 +44,7 @@ const RouterProvider: React.FC = () => {
     history: () => createBrowserRouter(routerList as RouteObject[])
   };
 
-  return <Router router={routerMode["hash"]()} />;
+  return <Router router={routerMode["history"]()} />;
 };
 
 export default RouterProvider;

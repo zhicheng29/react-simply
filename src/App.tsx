@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
-import { useSelector, useDispatch } from "@/stores/index.ts";
-import { setTheme } from "@/stores/modules/theme";
+import { useSelector, useDispatch } from "@/redux";
+import { setTheme } from "@/redux/modules/theme";
 import { getSystemLanguage } from "@/utils";
 
 import RouterProvider from "@/routers/index.tsx";

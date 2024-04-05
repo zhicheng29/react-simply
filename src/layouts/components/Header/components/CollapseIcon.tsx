@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useDispatch, useSelector } from "@/stores";
-import { setTheme } from "@/stores/modules/theme";
+import { useDispatch, useSelector } from "@/redux";
+import { setTheme } from "@/redux/modules/theme";
 
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 

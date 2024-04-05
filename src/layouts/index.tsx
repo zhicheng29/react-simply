@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useSelector } from "@/stores";
+import { useSelector } from "@/redux";
 
 import LayoutClassic from "@/layouts/LayoutClassic";
 import LayoutHorizontal from "@/layouts/LayoutHorizontal";
@@ -9,7 +9,7 @@ import LayoutColumn from "@/layouts/LayoutColumn";
 
 import "./index.less";
 
-import type { RootStateType } from "@/stores";
+import type { RootStateType } from "@/redux";
 
 const layoutComponents = {
   classic: <LayoutClassic />,

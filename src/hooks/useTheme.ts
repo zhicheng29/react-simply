@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { shallowEqual } from "react-redux";
 
-import { useSelector } from "@/stores/index.ts";
+import { useSelector } from "@/redux";
 
-import type { RootStateType } from "src/stores";
+import type { RootStateType } from "@/redux";
 
 const useTheme = () => {
   const { isDark } = useSelector(

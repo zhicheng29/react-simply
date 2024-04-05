@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { UserStateType } from "@/stores/interface/index.ts";
+import type { UserStateType } from "@/redux/interface";
 
 const userState: UserStateType = {
   token: "",

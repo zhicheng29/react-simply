@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { useSelector } from "@/stores";
+import { useSelector } from "@/redux";
 
 import { Menu } from "antd";
 
 import "./index.less";
 
 import type { MenuProps } from "antd";
-import type { RootStateType } from "@/stores";
+import type { RootStateType } from "@/redux";
 import type { RouteObjectType } from "@/routers/interface";
 
 type MenuItem = Required<MenuProps>["items"][number];

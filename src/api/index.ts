@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { setToken } from "@/stores/modules/user";
-import { store } from "@/stores/index.ts";
+import { setToken } from "@/redux/modules/user";
+import { store } from "@/redux";
 import { message as messageNotice } from "@/hooks/useMessage";
 
 import { ResponseStatusEnum } from "@/enum/axiosEnum";
