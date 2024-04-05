@@ -3,7 +3,7 @@ import React from "react";
 const Home: React.FC = () => {
   return (
     <React.Fragment>
-      <div>首页</div>
+      <div>tset history route</div>
     </React.Fragment>
   );
 };
