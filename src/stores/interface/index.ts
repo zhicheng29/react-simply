@@ -10,7 +10,7 @@ export interface UserStateType {
 export type LanguageType = "zh" | "en" | null;
 export type Layout = "classic" | "horizontal" | "column" | "vertical";
 
-export interface GlobalStateType {
+export interface ThemeStateType {
   isDark: boolean;
   isCollapsed: boolean;
   language: LanguageType;

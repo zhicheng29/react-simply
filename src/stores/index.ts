@@ -5,13 +5,13 @@ import storage from "redux-persist/lib/storage"; // 存储
 import { thunk } from "redux-thunk"; // 异步
 
 import user from "@/stores/modules/user";
-import global from "@/stores/modules/global.ts";
+import theme from "@/stores/modules/theme";
 import auth from "@/stores/modules/auth";
 
 import type { Middleware } from "@reduxjs/toolkit";
 
 // 使用 combineReducers 合并子模块
-const reducer = combineReducers({ user, global, auth });
+const reducer = combineReducers({ user, theme, auth });
 
 // persist 配置
 const persistConfig = {

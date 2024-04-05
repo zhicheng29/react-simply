@@ -16,7 +16,7 @@ import "./index.less";
 
 const LayoutClassic: React.FC = () => {
   const { Sider, Header } = Layout;
-  const { isCollapsed } = useSelector(state => state.global);
+  const { isCollapsed } = useSelector(state => state.theme);
   return (
     <section className="layout-classic">
       <Sider width={210} collapsed={isCollapsed}>

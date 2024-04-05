@@ -10,7 +10,7 @@ import { useSelector } from "@/stores";
 
 const Login: React.FC = () => {
   const [showWelcome, setShowWelcome] = useState(true);
-  const { beginAnimation } = useSelector(state => state.global);
+  const { beginAnimation } = useSelector(state => state.theme);
 
   return (
     <div className="lint-container">

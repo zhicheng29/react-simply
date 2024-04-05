@@ -1,4 +1,6 @@
-# TODO
+# React-Simply
+
+## TODO
 
 - [x] 完成redux持久化
 - [x] router拦截与router转化，router跳转的进度条
@@ -7,5 +9,8 @@
 - [ ] 面包屑及持久化
 - [ ] 自定义主题配置
 - [ ] 页面缓存
-- [ ] 封装常用hook
+- [ ] 常用 hook 封装
+- [ ] vite 打包优化
 - [ ] 优化白屏
+
+- [ ] automatic deployment

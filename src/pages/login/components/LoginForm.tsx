@@ -7,7 +7,7 @@ import { HOMEPATH } from "@/constants/config.ts";
 import { useDispatch } from "@/stores/index.ts";
 import { loginApi } from "@/api/modules/login";
 import { setToken } from "@/stores/modules/user";
-import { setGlobal } from "@/stores/modules/global";
+import { setTheme } from "@/stores/modules/theme";
 import { message } from "@/hooks/useMessage";
 import usePermission from "@/hooks/usePermission";
 
@@ -61,9 +61,8 @@ const LoginForm: React.FC = () => {
       message.open({ key, type: "loading", content: "登录中" });
       const { data } = await loginApi({ ...formData, password: md5(formData.password) });
       dispatch(setToken(data.access_token));
-      dispatch(setGlobal({ key: "beginAnimation", value: false }));
+      dispatch(setTheme({ key: "beginAnimation", value: false }));
       await initPermission(data.access_token);
-      message.open({ key, type: "success", content: "登录成功" });
       navigate(HOMEPATH);
     } finally {
       setLoading(false);

@@ -8,8 +8,8 @@ import type { RootStateType } from "src/stores";
 const useTheme = () => {
   const { isDark } = useSelector(
     (state: RootStateType) => ({
-      isDark: state.global.isDark,
-      themeColor: state.global.themeColor
+      isDark: state.theme.isDark,
+      themeColor: state.theme.themeColor
     }),
     shallowEqual
   );

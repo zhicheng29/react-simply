@@ -22,12 +22,12 @@ const RouterGuard: React.FC<RouterGuardProps> = props => {
 
   useEffect(() => {
     const meta = loader as MetaProps;
+    const isLoginPage = pathname === LOGINPATH;
+
     if (meta) {
       const title = import.meta.env.VITE_APP_TITLE;
       document.title = meta?.title ? `${meta.title} - ${title}` : title;
     }
-
-    const isLoginPage = pathname === LOGINPATH;
 
     if (authMenuList.length && token && isLoginPage) {
       return navigate(HOMEPATH);

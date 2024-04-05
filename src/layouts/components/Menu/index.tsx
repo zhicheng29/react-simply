@@ -18,7 +18,7 @@ const LayoutMenu: React.FC = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const { isDark } = useSelector(state => state.global);
+  const { isDark } = useSelector(state => state.theme);
   const menuList = useSelector((state: RootStateType) => state.auth.authMenuList);
 
   useEffect(() => {
