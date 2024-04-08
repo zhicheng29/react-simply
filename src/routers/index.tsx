@@ -14,6 +14,8 @@ import type { RouteObject } from "react-router-dom";
 import type { RootStateType } from "@/redux";
 import type { RouteObjectType } from "@/routers/interface";
 
+const mode = import.meta.env.VITE_ROUTER_MODE;
+
 const RouterProvider: React.FC = () => {
   useTheme();
   useMessage();
@@ -44,7 +46,7 @@ const RouterProvider: React.FC = () => {
     history: () => createBrowserRouter(routerList as RouteObject[])
   };
 
-  return <Router router={routerMode["history"]()} />;
+  return <Router router={routerMode[mode]()} />;
 };
 
 export default RouterProvider;

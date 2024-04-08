@@ -5,10 +5,13 @@
   &-icon {
     height: 55px;
     i {
-      margin: 0 10px;
-      font-size: 20px;
+      margin: 0 5px;
       color: var(--simply-color-text-base);
       cursor: pointer;
+      &:hover {
+        background-color: var(--simply-color-bg-text-hover);
+        border-radius: var(--simply-border-radius-lg);
+      }
     }
   }
   &-user {
@@ -33,7 +36,12 @@
   align-items: center;
   height: 55px;
   line-height: 55px;
-  .collapse-icon {
-    font-size: 20px;
+}
+.layout-header-icon {
+  padding: 5px;
+  font-size: 20px !important;
+  &:hover {
+    background-color: var(--simply-color-bg-text-hover);
+    border-radius: var(--simply-border-radius-lg);
   }
 }

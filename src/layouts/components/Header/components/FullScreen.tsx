@@ -19,7 +19,12 @@ const FullScreen: React.FC = () => {
     };
   });
 
-  return <i className={`iconfont ${fullScreen ? "icon-exitfullscreen" : "icon-fullscreen"}`} onClick={handleFullScreen} />;
+  return (
+    <i
+      className={`layout-header-icon iconfont ${fullScreen ? "icon-exitfullscreen" : "icon-fullscreen"}`}
+      onClick={handleFullScreen}
+    />
+  );
 };
 
 export default FullScreen;

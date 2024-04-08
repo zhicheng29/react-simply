@@ -15,7 +15,7 @@ const CollapseIcon: React.FC = () => {
   return (
     <React.Fragment>
       {React.createElement(isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-        className: "collapse-icon",
+        className: "collapse-icon layout-header-icon",
         onClick: changeCollapsed
       })}
     </React.Fragment>

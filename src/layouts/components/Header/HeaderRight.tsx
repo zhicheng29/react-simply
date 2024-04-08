@@ -1,9 +1,9 @@
 import React from "react";
 
 import FullScreen from "./components/FullScreen.tsx";
-import SwitchDark from "./components/SwitchDark.tsx";
 import Language from "./components/Language.tsx";
 import AvatarCom from "./components/Avatar.tsx";
+import SwitchDark from "@/components/SwitchDark";
 
 import "./index.less";
 

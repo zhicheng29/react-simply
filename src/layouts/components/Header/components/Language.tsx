@@ -13,7 +13,7 @@ const Language: React.FC = () => {
     message.success(`已切换至${language === "zh" ? "English" : "简体中文"}`);
   };
 
-  return <i className={`iconfont icon-translate`} onClick={changeLanguage} />;
+  return <i className={`layout-header-icon iconfont icon-translate`} onClick={changeLanguage} />;
 };
 
 export default Language;

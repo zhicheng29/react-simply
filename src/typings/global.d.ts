@@ -5,6 +5,10 @@ declare interface ViteEnvType {
   VITE_OPEN: boolean;
   VITE_PUBLIC_PATH: string;
   VITE_DROP_CONSOLE: boolean;
-
+  VITE_ROUTER_MODE: "hash" | "history";
   VITE_APP_TITLE: string;
+}
+
+interface ImportMetaEnv extends ViteEnvType {
+  __: unknown;
 }
