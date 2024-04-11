@@ -13,7 +13,7 @@ const themeState: ThemeStateType = {
 };
 
 // 创建样式 stores
-const useThemeSlice = createSlice({
+const themeSlice = createSlice({
   name: "theme",
   initialState: themeState,
   reducers: {
@@ -26,5 +26,5 @@ const useThemeSlice = createSlice({
   }
 });
 
-export const { setTheme } = useThemeSlice.actions;
-export default useThemeSlice.reducer;
+export const { setTheme } = themeSlice.actions;
+export default themeSlice.reducer;

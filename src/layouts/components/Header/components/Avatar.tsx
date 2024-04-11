@@ -1,12 +1,7 @@
 import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 
-import { LOGINPATH } from "@/constants/config";
-
-import { useDispatch } from "@/redux";
-import { setToken } from "@/redux/modules/user";
-import { clearAuthList } from "@/redux/modules/auth";
 import { message, modal } from "@/hooks/useMessage";
+import { logout } from "@/utils";
 
 import EditPassDrawer from "./EditPassDrawer";
 import EditInfoDrawer from "./EditInfoDrawer";
@@ -18,9 +13,6 @@ import type { EditPassDrawerRef } from "./EditPassDrawer";
 import type { EditInfoDrawerRef } from "./EditInfoDrawer";
 
 const AvatarCom: React.FC = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const editPassDrawerRef = useRef<EditPassDrawerRef>(null);
   const editInfoDrawerRef = useRef<EditInfoDrawerRef>(null);
 
@@ -31,9 +23,7 @@ const AvatarCom: React.FC = () => {
       okText: "确认",
       cancelText: "取消",
       onOk: () => {
-        dispatch(setToken(""));
-        dispatch(clearAuthList());
-        navigate(LOGINPATH);
+        logout();
         message.success("已退出登录");
       }
     });

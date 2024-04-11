@@ -1,11 +1,10 @@
 import axios from "axios";
 
-import { setToken } from "@/redux/modules/user";
 import { store } from "@/redux";
+import { logout } from "@/utils";
 import { message as messageNotice } from "@/hooks/useMessage";
 
 import { ResponseStatusEnum } from "@/enum/axiosEnum";
-import { LOGINPATH } from "@/constants/config.ts";
 
 import type { ResponseType } from "@/api/interface";
 import type { AxiosError, AxiosResponse, AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
@@ -42,8 +41,7 @@ class RequestHttp {
         const { data } = response;
         // 登录过期
         if (data.code === ResponseStatusEnum.OVERDUE) {
-          store.dispatch(setToken(""));
-          window.$navigate(LOGINPATH);
+          logout();
           return Promise.reject(data);
         }
         // 业务层级错误码

@@ -1,3 +1,9 @@
+import { store } from "@/redux";
+import { setToken } from "@/redux/modules/user";
+import { clearAuthList } from "@/redux/modules/auth";
+
+import { LOGINPATH } from "@/constants/config";
+
 import type { RouteObjectType } from "@/routers/interface";
 
 /**
@@ -19,4 +25,13 @@ export function getSystemLanguage(): "zh" | "en" {
 export function getFlatMenuList(menuList: RouteObjectType[]): RouteObjectType[] {
   const newMenuList: RouteObjectType[] = JSON.parse(JSON.stringify(menuList));
   return newMenuList.flatMap(item => [item, ...(item.children ? getFlatMenuList(item.children) : [])]);
+}
+
+/**
+ * @description 退出登录
+ */
+export function logout() {
+  store.dispatch(setToken(""));
+  store.dispatch(clearAuthList());
+  window.$navigate(LOGINPATH);
 }

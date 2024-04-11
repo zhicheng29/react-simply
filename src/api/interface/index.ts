@@ -12,8 +12,13 @@ export interface LoginReqType {
   vcode: string;
 }
 
+export interface UserInfoType {
+  name: string;
+}
+
 export interface LoginResType {
   access_token: string;
+  userInfo: UserInfoType;
 }
 
 export interface AuthState {

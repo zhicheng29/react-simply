@@ -6,8 +6,9 @@ import { HOMEPATH } from "@/constants/config.ts";
 
 import { useDispatch } from "@/redux";
 import { loginApi } from "@/api/modules/login";
-import { setToken } from "@/redux/modules/user";
+import { setToken, setUserInfo } from "@/redux/modules/user";
 import { setTheme } from "@/redux/modules/theme";
+import { setTabsList } from "@/redux/modules/tabs";
 import { message } from "@/hooks/useMessage";
 import usePermission from "@/hooks/usePermission";
 
@@ -60,6 +61,9 @@ const LoginForm: React.FC = () => {
       setLoading(true);
       message.open({ key, type: "loading", content: "登录中" });
       const { data } = await loginApi({ ...formData, password: md5(formData.password) });
+      dispatch(setUserInfo({ key: "name", value: data.userInfo.name }));
+      // 跳到login时，会触发 Tabs 的 useEffect，所以需要在此处清空
+      dispatch(setTabsList([]));
       dispatch(setToken(data.access_token));
       dispatch(setTheme({ key: "beginAnimation", value: false }));
       await initPermission(data.access_token);

@@ -9,7 +9,7 @@ const userState: UserStateType = {
 };
 
 // createSlice 创建子模板
-const useUserSlice = createSlice({
+const userSlice = createSlice({
   name: "user",
   initialState: userState, // 初始数据状态
   reducers: {
@@ -18,15 +18,18 @@ const useUserSlice = createSlice({
       state.token = payload;
     },
     // 设置用户基本信息
-    setUserInfo(state, { payload }: PayloadAction<string>) {
-      state.userInfo.name = payload;
+    setUserInfo<T extends keyof UserStateType["userInfo"]>(
+      state: UserStateType,
+      { payload }: PayloadAction<{ key: T; value: UserStateType["userInfo"][T] }>
+    ) {
+      state.userInfo[payload.key] = payload.value;
     }
   }
 });
 
-const { setUserInfo, setToken } = useUserSlice.actions;
+const { setUserInfo, setToken } = userSlice.actions;
 
 // 导出创建 actions 的对象
 export { setUserInfo, setToken };
 // 导出 reducer 函数
-export default useUserSlice.reducer;
+export default userSlice.reducer;

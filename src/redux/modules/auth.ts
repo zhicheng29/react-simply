@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AuthState, FlatMenuType } from "@/redux/interface";
 
 import { getFlatMenuList } from "@/utils";
 
 import type { PayloadAction } from "@reduxjs/toolkit";
+import type { AuthState } from "@/redux/interface";
+import type { RouteObjectType } from "@/routers/interface";
 
 interface PermissionState {
   authMenuList: AuthState["authMenuList"];
-  flatMenuList: FlatMenuType;
+  flatMenuList: RouteObjectType[];
 }
 
 const initialAuthState: PermissionState = {
@@ -16,7 +17,7 @@ const initialAuthState: PermissionState = {
 };
 
 // 权限模块
-const useAuthSlice = createSlice({
+const authSlice = createSlice({
   name: "auth",
   initialState: initialAuthState,
   reducers: {
@@ -31,5 +32,5 @@ const useAuthSlice = createSlice({
   }
 });
 
-export const { setAuthMenuList, clearAuthList } = useAuthSlice.actions;
-export default useAuthSlice.reducer;
+export const { setAuthMenuList, clearAuthList } = authSlice.actions;
+export default authSlice.reducer;
