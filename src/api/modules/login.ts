@@ -6,3 +6,8 @@ import type { LoginReqType, LoginResType } from "@/api/interface";
 export const loginApi = (params: LoginReqType) => {
   return RequestHttp.post<LoginResType>("/login", params);
 };
+
+// 退出登录
+export const logoutApi = () => {
+  return RequestHttp.post("/logout");
+};

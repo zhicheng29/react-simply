@@ -1,5 +1,6 @@
 import { store } from "@/redux";
 import { setToken } from "@/redux/modules/user";
+import { logoutApi } from "@/api/modules/login";
 import { clearAuthList } from "@/redux/modules/auth";
 
 import { LOGINPATH } from "@/constants/config";
@@ -30,7 +31,8 @@ export function getFlatMenuList(menuList: RouteObjectType[]): RouteObjectType[] 
 /**
  * @description 退出登录
  */
-export function logout() {
+export async function logout() {
+  await logoutApi();
   store.dispatch(setToken(""));
   store.dispatch(clearAuthList());
   window.$navigate(LOGINPATH);

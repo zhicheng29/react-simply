@@ -37,11 +37,11 @@ class RequestHttp {
 
     // 响应拦截器
     this.service.interceptors.response.use(
-      (response: AxiosResponse) => {
+      async (response: AxiosResponse) => {
         const { data } = response;
         // 登录过期
         if (data.code === ResponseStatusEnum.OVERDUE) {
-          logout();
+          await logout();
           return Promise.reject(data);
         }
         // 业务层级错误码

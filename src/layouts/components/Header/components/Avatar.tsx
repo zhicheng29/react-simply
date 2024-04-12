@@ -8,6 +8,8 @@ import EditInfoDrawer from "./EditInfoDrawer";
 import { Avatar, Dropdown } from "antd";
 import { LoginOutlined, UserOutlined, EditOutlined } from "@ant-design/icons";
 
+import avatar from "@/assets/images/avatar.png";
+
 import type { MenuProps } from "antd";
 import type { EditPassDrawerRef } from "./EditPassDrawer";
 import type { EditInfoDrawerRef } from "./EditInfoDrawer";
@@ -22,8 +24,8 @@ const AvatarCom: React.FC = () => {
       content: "是否确认要退出登录？",
       okText: "确认",
       cancelText: "取消",
-      onOk: () => {
-        logout();
+      onOk: async () => {
+        await logout();
         message.success("已退出登录");
       }
     });
@@ -56,9 +58,7 @@ const AvatarCom: React.FC = () => {
   return (
     <React.Fragment>
       <Dropdown menu={{ items }} trigger={["click"]}>
-        <Avatar size={40} className="avatar">
-          USER
-        </Avatar>
+        <Avatar src={avatar} size={40} className="avatar"></Avatar>
       </Dropdown>
       <EditPassDrawer ref={editPassDrawerRef} />
       <EditInfoDrawer ref={editInfoDrawerRef} />
