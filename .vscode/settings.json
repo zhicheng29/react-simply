@@ -34,18 +34,24 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
-    "Iconfont",
-    "antd",
-    "wakeup",
-    "fadein",
-    "vcode",
-    "svgs",
-    "reduxjs",
     "alicdn",
+    "antd",
     "commitlint",
+    "Coms",
+    "Copited",
+    "fadein",
+    "Iconfont",
+    "LOGINPATH",
+    "loglevel",
+    "lucide",
+    "nprogress",
     "Prefixs",
+    "reduxjs",
+    "rehype",
     "styl",
     "stylelint",
-    "loglevel"
+    "svgs",
+    "vcode",
+    "wakeup"
   ]
 }
