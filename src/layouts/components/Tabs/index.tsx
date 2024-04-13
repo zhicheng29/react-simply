@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useMatches, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "@/redux";
-import { addTabItem } from "@/redux/modules/tabs";
+import { addTabItem, deleteTabItem } from "@/redux/modules/tabs";
 
 import { Tabs } from "antd";
 
@@ -41,6 +41,18 @@ const LayoutTabs: React.FC = () => {
     };
   });
 
+  const onEdit = (
+    targetKey: string | React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>,
+    action: "add" | "remove"
+  ) => {
+    if (action === "remove") {
+      dispatch(deleteTabItem(targetKey as string));
+      // 异步执行，此处无法获取最新的 state
+      console.log(tabsList[tabsList.length - 1].path);
+
+      // navigate(tabsList[tabsList.length - 1].path);
+    }
+  };
   const onChange = (key: string) => {
     navigate(key);
   };
@@ -55,6 +67,7 @@ const LayoutTabs: React.FC = () => {
       className="layout-tab"
       activeKey={path}
       items={tabItems}
+      onEdit={onEdit}
       onChange={onChange}
     />
   );

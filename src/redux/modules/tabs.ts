@@ -17,11 +17,14 @@ const tabSlice = createSlice({
         state.push(payload);
       }
     },
-    deteleTabItem(state, { payload }: PayloadAction<TabPropType>) {
-      return state.filter(item => item.path !== payload.path);
+    deleteTabItem(state, { payload }: PayloadAction<TabPropType["path"]>) {
+      const index = state.findIndex(item => item.path === payload);
+      const nextTabPath = state[index + 1]?.path || state[index - 1]?.path;
+      window.$navigate(nextTabPath);
+      return state.filter(item => item.path !== payload);
     }
   }
 });
 
-export const { setTabsList, addTabItem, deteleTabItem } = tabSlice.actions;
+export const { setTabsList, addTabItem, deleteTabItem } = tabSlice.actions;
 export default tabSlice.reducer;
