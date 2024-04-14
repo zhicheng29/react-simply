@@ -1,21 +1,23 @@
-// @see: https://www.prettier.cn
+// https://www.prettier.cn
+
+/** @type {import("prettier").Config} */
 module.exports = {
-  printWidth: 130,
-  tabWidth: 2,
-  useTabs: false,
   semi: true,
+  useTabs: false,
   singleQuote: false,
-  quoteProps: "as-needed",
-  jsxSingleQuote: false,
-  trailingComma: "none",
-  bracketSpacing: true,
-  bracketSameLine: false,
-  arrowParens: "avoid",
-  requirePragma: false,
   insertPragma: false,
-  proseWrap: "preserve",
-  endOfLine: "auto",
-  htmlWhitespaceSensitivity: "css",
+  requirePragma: false,
+  bracketSpacing: true,
+  jsxSingleQuote: false,
+  bracketSameLine: false,
+  tabWidth: 2,
   rangeStart: 0,
-  rangeEnd: Infinity
+  printWidth: 130,
+  rangeEnd: Infinity,
+  endOfLine: "auto",
+  arrowParens: "avoid",
+  proseWrap: "preserve",
+  trailingComma: "none",
+  quoteProps: "as-needed",
+  htmlWhitespaceSensitivity: "css"
 };
