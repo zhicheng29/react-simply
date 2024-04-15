@@ -13,6 +13,8 @@ import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
 
 const App: React.FC = () => {
+  console.log("test drop");
+
   const dispatch = useDispatch();
   const { language, isDark } = useSelector(state => state.theme);
 
