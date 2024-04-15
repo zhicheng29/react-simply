@@ -1,4 +1,4 @@
-export const HOMEPATH = "/home/index";
+export const HOMEPATH = "/home";
 
 export const LOGINPATH = "/login";
 

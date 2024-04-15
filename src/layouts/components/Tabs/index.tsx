@@ -49,6 +49,7 @@ const LayoutTabs: React.FC = () => {
       dispatch(deleteTabItem(targetKey as string));
     }
   };
+
   const onChange = (key: string) => {
     navigate(key);
   };

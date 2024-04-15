@@ -1,20 +1,36 @@
 {
-  "name": "react-basic",
+  "name": "react-simply",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://github.com/zhicheng29/react-simply",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhicheng29/react-simply.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhicheng29/react-simply/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "zhicheng29",
+    "email": "wzchenglll@163.com",
+    "url": "https://github.com/zhicheng29"
+  },
   "scripts": {
     "serve": "vite",
     "build:dev": "tsc && vite build --mode development",
     "build:test": "tsc && vite build --mode test",
+    "build:staging": "tsc && vite build --mode staging",
     "build:pro": "tsc && vite build --mode production",
     "preview": "vite preview",
     "type:check": "tsc --noEmit --skipLibCheck",
     "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src ./build",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
-    "prepare": "husky",
     "lint:lint-staged": "lint-staged",
+    "prepare": "husky",
+    "preinstall": "npx only-allow pnpm",
     "commit": "git pull && git add -A && czg && git push"
   },
   "dependencies": {
@@ -63,18 +79,25 @@
     "postcss-html": "^1.6.0",
     "postcss-less": "^6.0.0",
     "prettier": "^3.2.5",
+    "rollup-plugin-visualizer": "^5.12.0",
     "stylelint": "^16.2.1",
     "stylelint-config-recess-order": "^5.0.0",
     "stylelint-config-standard": "^36.0.0",
     "typescript": "^5.4.2",
-    "vite": "^5.1.6"
+    "vite": "^5.1.6",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-imagemin": "^0.6.1"
   },
   "engines": {
-    "node": ">=20.11.0"
+    "node": ">=20.11.0",
+    "pnpm": ">=8.15.1"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git"
     }
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
   }
 }

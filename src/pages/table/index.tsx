@@ -1,9 +1,13 @@
 import React from "react";
 
+import { Card } from "antd";
+
 const TableCom: React.FC = () => {
   return (
     <React.Fragment>
-      <div>table</div>
+      <Card>
+        <div>table</div>
+      </Card>
     </React.Fragment>
   );
 };

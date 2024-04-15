@@ -1,9 +1,12 @@
 import React from "react";
+import { Card } from "antd";
 
 const AnimationCom: React.FC = () => {
   return (
     <React.Fragment>
-      <div>animation</div>
+      <Card>
+        <div>animation</div>
+      </Card>
     </React.Fragment>
   );
 };

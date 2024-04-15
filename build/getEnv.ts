@@ -7,6 +7,7 @@ export function conversionEnv(env: Record<string, any>): ViteEnvType {
     if (env[key] === "true") resultEnv[key] = true;
     if (env[key] === "false") resultEnv[key] = false;
     if (key === "VITE_PORT") resultEnv[key] = Number(env[key]);
+    if (key === "VITE_COMPRESSION") resultEnv[key] = JSON.parse(env[key]);
   }
   return resultEnv;
 }

@@ -1,4 +1,6 @@
 // https://stylelint.io
+
+/** @type {import("stylelint").Config} */
 module.exports = {
   root: true,
   extends: ["stylelint-config-standard", "stylelint-config-recess-order"],

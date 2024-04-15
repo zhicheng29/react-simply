@@ -11,5 +11,8 @@ node_modules
 .husky
 .local
 /bin
-/src/mock/*
-stats.html
+
+*.nvmrv
+*.npmrc
+.markdownlint.json
+report.html

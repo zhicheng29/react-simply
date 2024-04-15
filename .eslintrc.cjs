@@ -1,4 +1,6 @@
 // @see: https://eslint.cn
+
+/** @type {import("eslint").Config} */
 module.exports = {
   root: true,
   env: { browser: true, node: true, es6: true },

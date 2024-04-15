@@ -4,4 +4,8 @@
 **/*.sh
 **/*.svg
 /public/*
-stats.html
+
+*.nvmrv
+*.npmrc
+.markdownlint.json
+report.html

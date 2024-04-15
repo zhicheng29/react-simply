@@ -1,18 +1,25 @@
-# TODO
+# Feature
 
-- [x] redux，persist
-- [x] route，route interception
-- [ ] route tabs
-- [ ] route cache
-- [x] more layout style
-- [ ] breadcrumbs
-- [ ] custom theme configuration
-- [ ] common hook packaging
-- [ ] vite packaging optimization
-- [ ] first screen optimization
-- [x] automatic deployment
-- [ ] welcome animation
+> 测试
 
-```js app.js
-var a = 0
+**功能**
+
+- [x] redux，持久化
+- [x] 路由拦截
+- [ ] 路由tab
+- [ ] 路由缓存
+- [ ] 多layout布局
+- [ ] 面包屑
+- [ ] 自定义主题
+- [x] CI部署
+
+**优化**
+
+- [ ] 首屏优化
+- [ ] 打包优化
+- [ ] 欢迎页的视频，动画优化
+- [ ] 兼容性（复制，暗黑模式切换，全屏）
+
+```ts test.ts
+const a = 0
 ```

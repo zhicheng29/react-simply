@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv, ConfigEnv, UserConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import { conversionEnv } from "./build/getEnv";
+import { getPlugins } from "./build/plugins";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
@@ -27,7 +27,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         }
       }
     },
-    plugins: [react()],
+    plugins: getPlugins(converseEnv),
     esbuild: {
       pure: converseEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []
     },

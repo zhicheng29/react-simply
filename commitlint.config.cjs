@@ -58,59 +58,60 @@ module.exports = {
     types: [
       {
         value: "feat",
-        name: "feat：新功能"
+        name: "feat：新增功能"
       },
       {
         value: "fix",
-        name: "fix：bug修复"
-      },
-      {
-        value: "docs",
-        name: "docs：文档变更"
+        name: "fix：修复问题"
       },
       {
         value: "style",
-        name: "style：样式修改"
+        name: "style：代码格式(不影响代码运行的变动)"
       },
       {
-        value: "refactor",
-        name: "refactor：重构"
-      },
-      {
-        value: "perf",
-        name: "perf：性能优化"
+        value: "type",
+        name: "type：类型修改"
       },
       {
         value: "test",
         name: "test：新增测试"
       },
       {
-        value: "build",
-        name: "build：编译相关"
+        value: "docs",
+        name: "docs：文档变更"
+      },
+
+      {
+        value: "wip",
+        name: "wip：开发中"
       },
       {
-        value: "ci",
-        name: "ci：持续集成"
+        value: "perf",
+        name: "perf：性能优化"
+      },
+      {
+        value: "refactor",
+        name: "refactor：重构"
       },
       {
         value: "chore",
-        name: "chore：其他修改"
+        name: "chore：构建过程或辅助工具的变动"
+      },
+      {
+        value: "build",
+        name: "build：编译/打包配置相关"
       },
       {
         value: "revert",
-        name: "revert：回滚 commit"
-      },
-      {
-        value: "wip",
-        name: "wip：wip提交"
+        name: "revert：撤销修改/回滚"
       },
       {
         value: "workflow",
         name: "workflow：工作流修改"
       },
       {
-        value: "type",
-        name: "type：类型修改"
+        value: "ci",
+        name: "ci：持续集成"
       }
     ],
     useEmoji: true,

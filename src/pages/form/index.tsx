@@ -1,9 +1,13 @@
 import React from "react";
 
+import { Card } from "antd";
+
 const FormCom: React.FC = () => {
   return (
     <React.Fragment>
-      <div>form</div>
+      <Card>
+        <div>form</div>
+      </Card>
     </React.Fragment>
   );
 };
