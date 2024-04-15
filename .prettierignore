@@ -5,7 +5,7 @@
 **/*.svg
 /public/*
 
-*.nvmrv
-*.npmrc
+.nvmrc
+.npmrc
 .markdownlint.json
 report.html

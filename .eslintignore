@@ -12,7 +12,7 @@ node_modules
 .local
 /bin
 
-*.nvmrv
-*.npmrc
+.nvmrc
+.npmrc
 .markdownlint.json
 report.html
