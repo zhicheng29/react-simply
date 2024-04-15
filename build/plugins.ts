@@ -70,6 +70,7 @@ function getPlugins(viteEnv: ViteEnvType): PluginOption[] {
   const { VITE_REPORT } = viteEnv;
   return [
     react(),
+    // imageMode(),
     compressMode(viteEnv),
     VITE_REPORT && visualizer({ filename: "report.html", gzipSize: true, brotliSize: true, open: true })
   ];
