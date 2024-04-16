@@ -1,9 +1,8 @@
 @font-face {
-  font-family: iconfont; /* Project id 4455947 */
-  src:
-    url("//at.alicdn.com/t/c/font_4455947_p5qlq420399.woff2?t=1712127773423") format("woff2"),
-    url("//at.alicdn.com/t/c/font_4455947_p5qlq420399.woff?t=1712127773423") format("woff"),
-    url("//at.alicdn.com/t/c/font_4455947_p5qlq420399.ttf?t=1712127773423") format("truetype");
+  font-family: iconfont;  /* Project id 4455947 */
+  src: url('//at.alicdn.com/t/c/font_4455947_hmcmm48migv.woff2?t=1713229060030') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4455947_hmcmm48migv.woff?t=1713229060030') format('woff'),
+       url('//at.alicdn.com/t/c/font_4455947_hmcmm48migv.ttf?t=1713229060030') format('truetype');
 }
 .iconfont {
   font-family: iconfont !important;
@@ -11,6 +10,18 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-component::before {
+  content: "\e657";
+}
+.icon-feature::before {
+  content: "\e62c";
+}
+.icon-search::before {
+  content: "\e855";
+}
+.icon-theme::before {
+  content: "\e71b";
 }
 .icon-form::before {
   content: "\e715";
@@ -48,3 +59,4 @@
 .icon-sun::before {
   content: "\e60c";
 }
+

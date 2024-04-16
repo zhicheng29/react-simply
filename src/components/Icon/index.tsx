@@ -8,7 +8,7 @@ interface IconProps {
 }
 
 export const IconFont = createFromIconfontCN({
-  scriptUrl: ["//at.alicdn.com/t/c/font_4455947_p5qlq420399.js"]
+  scriptUrl: ["//at.alicdn.com/t/c/font_4455947_hmcmm48migv.js"]
 });
 
 export const Icon: React.FC<IconProps> = ({ IconName, className }) => {

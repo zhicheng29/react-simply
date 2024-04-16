@@ -58,7 +58,7 @@ const AvatarCom: React.FC = () => {
   return (
     <React.Fragment>
       <Dropdown menu={{ items }} trigger={["click"]}>
-        <Avatar src={avatar} size={40} className="avatar"></Avatar>
+        <Avatar src={avatar} size={34} className="avatar"></Avatar>
       </Dropdown>
       <EditPassDrawer ref={editPassDrawerRef} />
       <EditInfoDrawer ref={editInfoDrawerRef} />

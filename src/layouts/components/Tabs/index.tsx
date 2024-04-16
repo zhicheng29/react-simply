@@ -10,7 +10,7 @@ import "./index.less";
 import type { MetaProps } from "@/routers/interface";
 
 const LayoutTabs: React.FC = () => {
-  const { pathname: path } = useLocation();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const matches = useMatches();
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const LayoutTabs: React.FC = () => {
     const tab = {
       title: meta.title!,
       icon: meta.icon!,
-      path: path,
+      path: pathname,
       closable: !!meta.closable
     };
     dispatch(addTabItem(tab));
@@ -45,8 +45,8 @@ const LayoutTabs: React.FC = () => {
     targetKey: string | React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>,
     action: "add" | "remove"
   ) => {
-    if (action === "remove") {
-      dispatch(deleteTabItem(targetKey as string));
+    if (action === "remove" && typeof targetKey === "string") {
+      dispatch(deleteTabItem({ path: targetKey, current: pathname === targetKey }));
     }
   };
 
@@ -62,7 +62,7 @@ const LayoutTabs: React.FC = () => {
       size="middle"
       type="editable-card"
       className="layout-tab"
-      activeKey={path}
+      activeKey={pathname}
       items={tabItems}
       onEdit={onEdit}
       onChange={onChange}

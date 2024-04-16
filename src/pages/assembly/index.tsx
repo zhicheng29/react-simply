@@ -2,14 +2,14 @@ import React from "react";
 
 import { Card } from "antd";
 
-const TableCom: React.FC = () => {
+const FormCom: React.FC = () => {
   return (
     <React.Fragment>
       <Card>
-        <div>table</div>
+        <div>常用组件</div>
       </Card>
     </React.Fragment>
   );
 };
 
-export default TableCom;
+export default FormCom;
